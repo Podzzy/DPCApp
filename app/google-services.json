@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "630688975984",
+    "firebase_url": "https://dpcapp-jjpod.firebaseio.com",
+    "project_id": "dpcapp-jjpod",
+    "storage_bucket": "dpcapp-jjpod.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:630688975984:android:13285eaeeab204bd",
+        "android_client_info": {
+          "package_name": "com.detroitpencil.jjpod.dpcapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "630688975984-a9khp32j6qe58l44gfj8a8jrsks5ghs4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFX9hGZFWNr-1K_b6Fzyg-kz6rUm7OsmM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
