@@ -18,8 +18,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".HomeScreen" />
-        <activity android:name=".RegisterScreen"/>
-            //android:windowSoftInputMode="adjustPan"
+        <activity android:name=".RegisterScreen" />
+        //android:windowSoftInputMode="adjustPan"
+        <activity android:name=".CreateScreen1" />
+        <activity android:name=".CreateScreen2"></activity>
     </application>
 
 </manifest>

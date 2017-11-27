@@ -33,7 +33,7 @@ public class RegisterScreen extends AppCompatActivity implements AdapterView.OnI
     Spinner spinner = null;
     String[] phases = null;
     private FirebaseAuth mAuth;
-    int currentPhase = -1;
+    String currentPhase = null;
     EditText editTextEmail= null, editTextPassword = null, editTextPasswordCheck = null;
     Button regButton = null;
     String email = null, password = null, passwordCheck = null;
@@ -49,6 +49,8 @@ public class RegisterScreen extends AppCompatActivity implements AdapterView.OnI
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_screen);
+
+        getSupportActionBar().setTitle("REGISTER");
 
         mAuth = FirebaseAuth.getInstance();
         fd = FirebaseDatabase.getInstance();
@@ -137,13 +139,13 @@ public class RegisterScreen extends AppCompatActivity implements AdapterView.OnI
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
         switch (i){
             case 0:
-                currentPhase = 1;
+                currentPhase = "Phase 1";
                 break;
             case 1:
-                currentPhase = 2;
+                currentPhase = "Phase 2";
                 break;
             case 2:
-                currentPhase = 3;
+                currentPhase = "Phase 3";
                 break;
             default:
                 break;

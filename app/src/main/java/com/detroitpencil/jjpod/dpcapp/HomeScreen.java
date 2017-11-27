@@ -1,11 +1,13 @@
 package com.detroitpencil.jjpod.dpcapp;
 
 import android.content.Intent;
+import android.icu.text.Collator;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -24,27 +26,41 @@ public class HomeScreen extends AppCompatActivity {
     DatabaseReference mRef;
     String userID;
     final String TAG = HomeScreen.class.getSimpleName();
-    int currentPhase;
+    String currentPhase = null;
+    TextView phaseText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_screen);
 
+        getSupportActionBar().setTitle("DASHBOARD");
+
         inboxButton = findViewById(R.id.inboxButton);
         accountButton = findViewById(R.id.accountButton);
         orderButton = findViewById(R.id.orderButton);
         logOutButton = findViewById(R.id.logOutbutton);
         createButton = findViewById(R.id.createButton);
+        phaseText = findViewById(R.id.phaseText);
 
-        inboxButton.setVisibility(View.INVISIBLE);
-        createButton.setVisibility(View.INVISIBLE);
+        inboxButton.setVisibility(View.GONE);
+        createButton.setVisibility(View.GONE);
 
         mAuth = FirebaseAuth.getInstance();
         mfirebaseDatabase= FirebaseDatabase.getInstance();
         mRef = mfirebaseDatabase.getReference();
         FirebaseUser user = mAuth.getCurrentUser();
         userID = user.getUid();
+
+        createButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(view.getContext(), CreateScreen1.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                startActivity(i);
+
+            }
+        });
 
 
 
@@ -61,35 +77,35 @@ public class HomeScreen extends AppCompatActivity {
         mRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-               currentPhase = getCurrentPhase(dataSnapshot);
-
+              phaseText.setText(String.valueOf(getCurrentPhase(dataSnapshot)));
+                currentPhase = phaseText.getText().toString();
+                if(currentPhase.equals("Phase 1")){
+                    createButton.setVisibility(View.VISIBLE);
+                }else{
+                    inboxButton.setVisibility(View.VISIBLE);
+                }
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-
             }
         });
 
-        if(currentPhase == 1){
-            inboxButton.setVisibility(View.INVISIBLE);
-            createButton.setVisibility(View.VISIBLE);
-        }else{
-            inboxButton.setVisibility(View.VISIBLE);
-            createButton.setVisibility(View.INVISIBLE);
-        }
+
+
 
     }
 
-    private int getCurrentPhase(DataSnapshot dataSnapshot) {
+    private String getCurrentPhase(DataSnapshot dataSnapshot) {
+        String cPhase = null;
         for(DataSnapshot ds: dataSnapshot.getChildren()){
             User user = new User();
             user.setPhase(ds.child(userID).getValue(User.class).getPhase());
-            currentPhase = user.getPhase();
-            Log.d(TAG, "showData: phase: " + user.getPhase());
+            cPhase = user.getPhase();
+            Log.d(TAG, "showData: phase: " + cPhase);
         }
 
-        return currentPhase;
+        return cPhase;
 
     }
 

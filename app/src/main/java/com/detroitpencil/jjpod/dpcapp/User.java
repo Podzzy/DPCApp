@@ -8,23 +8,23 @@ public class User {
 
     public String email;
     public String password;
-    public int phase;
+    public String phase;
 
     public User(){
 
     }
 
-    public User(String email, String password, int phase){
+    public User(String email, String password, String phase){
         this.email = email;
         this.password = password;
         this.phase = phase;
     }
 
-    public int getPhase(){
+    public String getPhase(){
         return phase;
     }
 
-    public void setPhase(int i){
+    public void setPhase(String i){
         phase = i;
     }
 
