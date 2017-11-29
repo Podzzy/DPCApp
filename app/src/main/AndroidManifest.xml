@@ -24,7 +24,12 @@
         <activity android:name=".CreateScreen2" />
         <activity android:name=".CreateScreen3" />
         <activity android:name=".CreateScreen4" />
-        <activity android:name=".CreateScreen5"></activity>
+        <activity android:name=".CreateScreen5" />
+        <activity android:name=".DeliveryCheckScreen" />
+        <activity android:name=".DeliveryScreen1" />
+        <activity android:name=".DeliveryScreen2" />
+        <activity android:name=".DeliveryScreen3" />
+        <activity android:name=".AdditionalInfoScreen"></activity>
     </application>
 
 </manifest>

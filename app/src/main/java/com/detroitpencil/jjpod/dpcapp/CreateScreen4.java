@@ -49,15 +49,16 @@ public class CreateScreen4 extends AppCompatActivity {
                 }else{
                     Intent i = new Intent();
                     i.setAction("com.detroitpencil.jjpod.dpcapp.APCONTACT_INFO");
-                    i.putExtra("apContactName", apContactName);
-                    i.putExtra("apPhone", apPhone);
-                    i.putExtra("apCell", apCell);
-                    i.putExtra("apOther", apOther);
+                    i.putExtra("dBuyer", apContactName);
+                    i.putExtra("dBuyerPhone", apPhone);
+                    i.putExtra("dBuyerCell", apCell);
+                    i.putExtra("dBuyerOther", apOther);
                     i.putExtra("apEmail", apEmail);
                     sendBroadcast(i);
 
                     Intent j = new Intent(CreateScreen4.this, CreateScreen5.class);
                     j.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                    
                     startActivity(j);
 
                 }

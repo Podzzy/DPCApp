@@ -1,5 +1,7 @@
 package com.detroitpencil.jjpod.dpcapp;
 
+import android.content.Intent;
+import android.icu.text.Collator;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -39,7 +41,27 @@ public class CreateScreen5 extends AppCompatActivity implements AdapterView.OnIt
         nextButton4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(CreateScreen5.this, "PO:"+poOption +"...Tax:"+taxable, Toast.LENGTH_SHORT).show();
+                if(poOption.equals("")){
+                    Toast.makeText(CreateScreen5.this, "P.O. selection required", Toast.LENGTH_SHORT).show();
+                    return;
+                }else if(payment.equals("")){
+                    Toast.makeText(CreateScreen5.this, "Payment selection required.", Toast.LENGTH_SHORT).show();
+                    return;
+                }else if(taxable.equals("")){
+                    Toast.makeText(CreateScreen5.this, "Taxable selection required", Toast.LENGTH_SHORT).show();
+                    return;
+                }else{
+                    Intent i = new Intent();
+                    i.setAction("com.detroitpencil.jjpod.dpcapp.ADDITIONAL_INFO");
+                    i.putExtra("poOption", poOption);
+                    i.putExtra("payment", payment);
+                    i.putExtra("taxable", taxable);
+                    sendBroadcast(i);
+
+                    Intent j = new Intent(CreateScreen5.this, DeliveryCheckScreen.class);
+                    j.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                    startActivity(j);
+                }
             }
         });
 

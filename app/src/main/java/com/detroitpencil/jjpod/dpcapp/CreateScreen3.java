@@ -41,9 +41,9 @@ public class CreateScreen3 extends AppCompatActivity {
                 }else{
                     Intent i = new Intent();
                     i.setAction("com.detroitpencil.jjpod.dpcapp.COMPANY_INFO_2");
-                    i.putExtra("phone", phone);
-                    i.putExtra("fax", fax);
-                    i.putExtra("cell", cell);
+                    i.putExtra("dPhone", phone);
+                    i.putExtra("dFax", fax);
+                    i.putExtra("dCell", cell);
                     sendBroadcast(i);
 
                     Intent j = new Intent(CreateScreen3.this, CreateScreen4.class);
