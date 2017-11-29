@@ -25,7 +25,7 @@ public class CreateScreen1 extends AppCompatActivity implements AdapterView.OnIt
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_screen1);
 
-        getSupportActionBar().setTitle("SALSEPERSON INFORMATION");
+        getSupportActionBar().setTitle("SALSEPERSON INFO");
 
         salesNameText = findViewById(R.id.salesNameText);
         salesIDText = findViewById(R.id.salesIDText);
@@ -41,16 +41,24 @@ public class CreateScreen1 extends AppCompatActivity implements AdapterView.OnIt
         nextPageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(view.getContext(), CreateScreen2.class);
-                i.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
 
                 salesName = salesNameText.getText().toString();
                 salesID = salesIDText.getText().toString();
+
                 if(salesName.equals("") || salesID.equals("") || company.equals("")){
                     Toast.makeText(view.getContext(), "All fields must be filled.", Toast.LENGTH_SHORT).show();
                     return;
                 }else{
-                    startActivity(i);
+                    Intent i = new Intent();
+                    i.setAction("com.detroitpencil.jjpod.dpcapp.SALES_INFO");
+                    i.putExtra("salesName", salesName);
+                    i.putExtra("salesID", salesID);
+                    i.putExtra("company", company);
+                    sendBroadcast(i);
+
+                    Intent j = new Intent(view.getContext(), CreateScreen2.class);
+                    j.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                    startActivity(j);
                 }
 
             }

@@ -11,7 +11,7 @@ import android.widget.Toast;
 public class CreateScreen2 extends AppCompatActivity {
 
     EditText companyText, address1Text, address2Text, cityText, stateText, zipText;
-    String companyName, address1, address2, city, state, zip;
+    String companyName, address1, address2= "", city, state, zip, sCompany, salesName, salesID;
     Button nextButton;
 
     @Override
@@ -19,7 +19,7 @@ public class CreateScreen2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_screen2);
 
-        getSupportActionBar().setTitle("COMPANY INFORMATION");
+        getSupportActionBar().setTitle("COMPANY INFO");
 
         companyText = findViewById(R.id.companyText);
         address1Text = findViewById(R.id.address1Text);
@@ -45,14 +45,23 @@ public class CreateScreen2 extends AppCompatActivity {
                     Toast.makeText(CreateScreen2.this, "Some fields are missing.", Toast.LENGTH_LONG).show();
                     return;
                 }else{
-                    startActivity(new Intent(CreateScreen2.this, CreateScreen3.class));
+                    //Toast.makeText(CreateScreen2.this, salesName + ":" + salesID + ":"+ sCompany, Toast.LENGTH_LONG).show();
+                    Intent i = new Intent();
+                    i.setAction("com.detroitpencil.jjpod.dpcapp.COMPANY_INFO_1");
+                    i.putExtra("companyName", companyName);
+                    i.putExtra("address1", address1);
+                    i.putExtra("address2", address2);
+                    i.putExtra("city", city);
+                    i.putExtra("state", state);
+                    i.putExtra("zip", zip);
+                    sendBroadcast(i);
+
+                    Intent j = new Intent(CreateScreen2.this, CreateScreen3.class);
+                    j.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                    startActivity(j);
                 }
-
-
             }
         });
-
-
     }
 
     @Override

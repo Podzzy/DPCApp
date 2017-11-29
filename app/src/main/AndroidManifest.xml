@@ -21,7 +21,10 @@
         <activity android:name=".RegisterScreen" />
         //android:windowSoftInputMode="adjustPan"
         <activity android:name=".CreateScreen1" />
-        <activity android:name=".CreateScreen2"></activity>
+        <activity android:name=".CreateScreen2" />
+        <activity android:name=".CreateScreen3" />
+        <activity android:name=".CreateScreen4" />
+        <activity android:name=".CreateScreen5"></activity>
     </application>
 
 </manifest>
