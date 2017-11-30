@@ -10,7 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".LoginScreen">
-            //android:windowSoftInputMode="adjustPan"
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -19,7 +18,6 @@
         </activity>
         <activity android:name=".HomeScreen" />
         <activity android:name=".RegisterScreen" />
-        //android:windowSoftInputMode="adjustPan"
         <activity android:name=".CreateScreen1" />
         <activity android:name=".CreateScreen2" />
         <activity android:name=".CreateScreen3" />
@@ -29,7 +27,8 @@
         <activity android:name=".DeliveryScreen1" />
         <activity android:name=".DeliveryScreen2" />
         <activity android:name=".DeliveryScreen3" />
-        <activity android:name=".AdditionalInfoScreen"></activity>
+        <activity android:name=".AdditionalInfoScreen" />
+        <activity android:name=".ReviewScreen"></activity>
     </application>
 
 </manifest>

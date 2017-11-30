@@ -54,7 +54,7 @@ public class DeliveryScreen3 extends AppCompatActivity {
                     i.putExtra("dNotes", dNotes);
                     sendBroadcast(i);
 
-                    Intent j = new Intent(DeliveryScreen3.this, CreateScreen5.class);
+                    Intent j = new Intent(DeliveryScreen3.this, AdditionalInfoScreen.class);
                     j.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
 
                     startActivity(j);

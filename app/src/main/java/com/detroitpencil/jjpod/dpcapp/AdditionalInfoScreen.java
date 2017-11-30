@@ -26,7 +26,7 @@ public class AdditionalInfoScreen extends AppCompatActivity {
         wcwText = findViewById(R.id.wcwText);
         bsnVersionText = findViewById(R.id.bsnVersionText);
 
-        rNextButton = findViewById(R.id.nextButton4);
+        rNextButton = findViewById(R.id.rNextButton);
         rNextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -49,12 +49,13 @@ public class AdditionalInfoScreen extends AppCompatActivity {
                     i.setAction("com.detroitpencil.jjpod.dpcapp.ADDITIONAL_INFO");
                     i.putExtra("location", location);
                     i.putExtra("wcw", wcw);
+                    i.putExtra("bsnVersion", bsnVersion);
                     i.putExtra("boxOption", boxOption);
                     i.putExtra("bsnOption", bsnOption);
                     i.putExtra("iOption", iOption);
                     sendBroadcast(i);
 
-                    Intent j = new Intent(AdditionalInfoScreen.this, DeliveryCheckScreen.class);
+                    Intent j = new Intent(AdditionalInfoScreen.this, ReviewScreen.class);
                     j.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                     startActivity(j);
                 }
