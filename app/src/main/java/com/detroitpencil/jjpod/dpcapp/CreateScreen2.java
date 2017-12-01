@@ -1,6 +1,8 @@
 package com.detroitpencil.jjpod.dpcapp;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -45,16 +47,15 @@ public class CreateScreen2 extends AppCompatActivity {
                     Toast.makeText(CreateScreen2.this, "Some fields are missing.", Toast.LENGTH_LONG).show();
                     return;
                 }else{
-                    //Toast.makeText(CreateScreen2.this, salesName + ":" + salesID + ":"+ sCompany, Toast.LENGTH_LONG).show();
-                    Intent i = new Intent();
-                    i.setAction("com.detroitpencil.jjpod.dpcapp.COMPANY_INFO_1");
-                    i.putExtra("companyName", companyName);
-                    i.putExtra("address1", address1);
-                    i.putExtra("address2", address2);
-                    i.putExtra("city", city);
-                    i.putExtra("state", state);
-                    i.putExtra("zip", zip);
-                    sendBroadcast(i);
+                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(view.getContext());
+                    SharedPreferences.Editor editor = prefs.edit();
+                    editor.putString("companyName", companyName);
+                    editor.putString("address1", address1);
+                    editor.putString("address2", address2);
+                    editor.putString("city", city);
+                    editor.putString("state", state);
+                    editor.putString("zip",zip);
+                    editor.commit();
 
                     Intent j = new Intent(CreateScreen2.this, CreateScreen3.class);
                     j.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);

@@ -1,6 +1,8 @@
 package com.detroitpencil.jjpod.dpcapp;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -39,12 +41,12 @@ public class CreateScreen3 extends AppCompatActivity {
                     Toast.makeText(CreateScreen3.this, "At least one method of contact required.", Toast.LENGTH_SHORT).show();
                     return;
                 }else{
-                    Intent i = new Intent();
-                    i.setAction("com.detroitpencil.jjpod.dpcapp.COMPANY_INFO_2");
-                    i.putExtra("dPhone", phone);
-                    i.putExtra("dFax", fax);
-                    i.putExtra("dCell", cell);
-                    sendBroadcast(i);
+                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(view.getContext());
+                    SharedPreferences.Editor editor = prefs.edit();
+                    editor.putString("phone", phone);
+                    editor.putString("fax", fax);
+                    editor.putString("cell", cell);
+                    editor.commit();
 
                     Intent j = new Intent(CreateScreen3.this, CreateScreen4.class);
                     j.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);

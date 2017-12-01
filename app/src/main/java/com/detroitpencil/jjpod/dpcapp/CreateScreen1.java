@@ -1,6 +1,8 @@
 package com.detroitpencil.jjpod.dpcapp;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -49,12 +51,12 @@ public class CreateScreen1 extends AppCompatActivity implements AdapterView.OnIt
                     Toast.makeText(view.getContext(), "All fields must be filled.", Toast.LENGTH_SHORT).show();
                     return;
                 }else{
-                    Intent i = new Intent();
-                    i.setAction("com.detroitpencil.jjpod.dpcapp.SALES_INFO");
-                    i.putExtra("salesName", salesName);
-                    i.putExtra("salesID", salesID);
-                    i.putExtra("company", company);
-                    sendBroadcast(i);
+                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(view.getContext());
+                    SharedPreferences.Editor editor = prefs.edit();
+                    editor.putString("salesName", salesName);
+                    editor.putString("salesID", salesID);
+                    editor.putString("company", company);
+                    editor.commit();
 
                     Intent j = new Intent(view.getContext(), CreateScreen2.class);
                     j.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);

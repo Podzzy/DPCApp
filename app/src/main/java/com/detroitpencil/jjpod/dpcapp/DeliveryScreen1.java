@@ -1,6 +1,8 @@
 package com.detroitpencil.jjpod.dpcapp;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -43,15 +45,14 @@ public class DeliveryScreen1 extends AppCompatActivity {
                     Toast.makeText(DeliveryScreen1.this, "Some fields are missing.", Toast.LENGTH_LONG).show();
                     return;
                 }else{
-                    //Toast.makeText(CreateScreen2.this, salesName + ":" + salesID + ":"+ sCompany, Toast.LENGTH_LONG).show();
-                    Intent i = new Intent();
-                    i.setAction("com.detroitpencil.jjpod.dpcapp.DELIVERY_INFO_1");
-                    i.putExtra("dAddress1", dAddress1);
-                    i.putExtra("dAddress2", dAddress2);
-                    i.putExtra("dCity", dCity);
-                    i.putExtra("dState", dState);
-                    i.putExtra("dZip", dZip);
-                    sendBroadcast(i);
+                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(view.getContext());
+                    SharedPreferences.Editor editor = prefs.edit();
+                    editor.putString("dAddress1", dAddress1);
+                    editor.putString("dAddress2", dAddress2);
+                    editor.putString("dCity", dCity);
+                    editor.putString("dState", dState);
+                    editor.putString("dZip", dZip);
+                    editor.commit();
 
                     Intent j = new Intent(DeliveryScreen1.this, DeliveryScreen2.class);
                     j.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);

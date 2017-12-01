@@ -1,6 +1,8 @@
 package com.detroitpencil.jjpod.dpcapp;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -38,12 +40,12 @@ public class DeliveryScreen2 extends AppCompatActivity {
                     Toast.makeText(DeliveryScreen2.this, "At least one method of contact required.", Toast.LENGTH_SHORT).show();
                     return;
                 } else {
-                    Intent i = new Intent();
-                    i.setAction("com.detroitpencil.jjpod.dpcapp.DELIVERY_INFO_2");
-                    i.putExtra("dPhone", dPhone);
-                    i.putExtra("dFax", dFax);
-                    i.putExtra("dCell", dCell);
-                    sendBroadcast(i);
+                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(view.getContext());
+                    SharedPreferences.Editor editor = prefs.edit();
+                    editor.putString("dPhone", dPhone);
+                    editor.putString("dFax", dFax);
+                    editor.putString("dCell", dCell);
+                    editor.commit();
 
                     Intent j = new Intent(DeliveryScreen2.this, DeliveryScreen3.class);
                     j.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);

@@ -55,7 +55,7 @@ public class HomeScreen extends AppCompatActivity {
         createButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(view.getContext(), ReviewScreen.class);
+                Intent i = new Intent(view.getContext(), CreateScreen1.class);
                 i.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                 startActivity(i);
 

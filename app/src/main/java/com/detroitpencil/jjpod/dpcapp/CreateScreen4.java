@@ -1,6 +1,8 @@
 package com.detroitpencil.jjpod.dpcapp;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -47,14 +49,16 @@ public class CreateScreen4 extends AppCompatActivity {
                 }else if(invoices.equals("")){
                     Toast.makeText(CreateScreen4.this, "Invoice option requires selection.", Toast.LENGTH_SHORT).show();
                 }else{
-                    Intent i = new Intent();
-                    i.setAction("com.detroitpencil.jjpod.dpcapp.APCONTACT_INFO");
-                    i.putExtra("dBuyer", apContactName);
-                    i.putExtra("dBuyerPhone", apPhone);
-                    i.putExtra("dBuyerCell", apCell);
-                    i.putExtra("dBuyerOther", apOther);
-                    i.putExtra("apEmail", apEmail);
-                    sendBroadcast(i);
+
+                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(view.getContext());
+                    SharedPreferences.Editor editor = prefs.edit();
+                    editor.putString("apContactName", apContactName);
+                    editor.putString("apPhone", apPhone);
+                    editor.putString("apCell", apCell);
+                    editor.putString("apOther", apOther);
+                    editor.putString("apEmail", apEmail);
+                    editor.putString("invoices",invoices);
+                    editor.commit();
 
                     Intent j = new Intent(CreateScreen4.this, CreateScreen5.class);
                     j.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);

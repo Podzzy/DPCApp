@@ -28,7 +28,8 @@
         <activity android:name=".DeliveryScreen2" />
         <activity android:name=".DeliveryScreen3" />
         <activity android:name=".AdditionalInfoScreen" />
-        <activity android:name=".ReviewScreen"></activity>
+        <activity android:name=".ReviewScreen">
+        </activity>
     </application>
 
 </manifest>

@@ -98,6 +98,46 @@
         </TableRow>
         <TableRow>
             <TextView
+                android:text="City:"
+                android:layout_width="wrap_content"
+                android:textSize="12sp"
+                android:gravity="end"/>
+
+            <EditText
+                android:id="@+id/finalCityText"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:text="City"
+                android:textSize="12sp" />
+            <TextView
+                android:text="State:"
+                android:layout_width="0dp"
+                android:textSize="12sp"
+                android:layout_weight="1"
+                android:gravity="end"/>
+
+            <EditText
+                android:id="@+id/finalStateText"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:text="State"
+                android:textSize="12sp" />
+            <TextView
+                android:text="Zip:"
+                android:layout_width="0dp"
+                android:textSize="12sp"
+                android:layout_weight="1"
+                android:gravity="end"/>
+
+            <EditText
+                android:id="@+id/finalZipText"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:text="Zip"
+                android:textSize="12dp" />
+        </TableRow>
+        <TableRow>
+            <TextView
                 android:text="Phone:"
                 android:layout_width="wrap_content"
                 android:textSize="12sp"
@@ -109,19 +149,7 @@
                 android:layout_weight="2"
                 android:text="Phone #"
                 android:textSize="12sp" />
-            <TextView
-                android:text="Fax:"
-                android:layout_width="0dp"
-                android:textSize="12sp"
-                android:layout_weight="1"
-                android:gravity="end"/>
 
-            <EditText
-                android:id="@+id/finalFaxText"
-                android:layout_width="0dp"
-                android:layout_weight="2"
-                android:text="Fax #"
-                android:textSize="12sp" />
             <TextView
                 android:text="Cell:"
                 android:layout_width="0dp"
@@ -179,19 +207,7 @@
                 android:layout_weight="2"
                 android:text="Cell #"
                 android:textSize="12sp" />
-            <TextView
-                android:text="Other:"
-                android:layout_width="0dp"
-                android:textSize="12sp"
-                android:layout_weight="1"
-                android:gravity="end"/>
 
-            <EditText
-                android:id="@+id/finalAPOtherText"
-                android:layout_width="0dp"
-                android:layout_weight="2"
-                android:text="Other"
-                android:textSize="12sp" />
         </TableRow>
         <TableRow>
             <TextView
@@ -357,7 +373,7 @@
         </TableRow>
         <TableRow>
             <TextView
-                android:text="Adrress 1:"
+                android:text="Address 1:"
                 android:textSize="12sp"
                 android:layout_width="wrap_content"
                 android:gravity="end"/>
@@ -383,6 +399,46 @@
         </TableRow>
         <TableRow>
             <TextView
+                android:text="City:"
+                android:layout_width="wrap_content"
+                android:textSize="12sp"
+                android:gravity="end"/>
+
+            <EditText
+                android:id="@+id/finalDCityText"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:text="City"
+                android:textSize="12sp" />
+            <TextView
+                android:text="State:"
+                android:layout_width="0dp"
+                android:textSize="12sp"
+                android:layout_weight="1"
+                android:gravity="end"/>
+
+            <EditText
+                android:id="@+id/finalDStateText"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:text="State"
+                android:textSize="12sp" />
+            <TextView
+                android:text="Zip:"
+                android:layout_width="0dp"
+                android:textSize="12sp"
+                android:layout_weight="1"
+                android:gravity="end"/>
+
+            <EditText
+                android:id="@+id/finalDZipText"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:text="Zip"
+                android:textSize="12dp" />
+        </TableRow>
+        <TableRow>
+            <TextView
                 android:text="Phone:"
                 android:layout_width="wrap_content"
                 android:textSize="12sp"
@@ -394,18 +450,7 @@
                 android:layout_weight="2"
                 android:text="Phone #"
                 android:textSize="12sp" />
-            <TextView
-                android:text="Fax:"
-                android:layout_width="0dp"
-                android:textSize="12sp"
-                android:layout_weight="1"
-                android:gravity="end"/>
-            <EditText
-                android:id="@+id/finalDFaxText"
-                android:text="Fax #"
-                android:textSize="12sp"
-                android:layout_weight="2"
-                android:layout_width="0dp"/>
+
             <TextView
                 android:text="Cell:"
                 android:layout_width="0dp"
@@ -459,18 +504,7 @@
                 android:textSize="12sp"
                 android:layout_weight="2"
                 android:layout_width="0dp"/>
-            <TextView
-                android:text="Other:"
-                android:layout_width="0dp"
-                android:textSize="12sp"
-                android:layout_weight="1"
-                android:gravity="end"/>
-            <EditText
-                android:id="@+id/finalBuyerOtherText"
-                android:text="Other"
-                android:textSize="12sp"
-                android:layout_weight="2"
-                android:layout_width="0dp"/>
+
         </TableRow>
         <TableRow>
             <TextView

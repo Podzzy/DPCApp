@@ -1,6 +1,8 @@
 package com.detroitpencil.jjpod.dpcapp;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -45,15 +47,15 @@ public class AdditionalInfoScreen extends AppCompatActivity {
                     Toast.makeText(AdditionalInfoScreen.this, "Internet set up selection required", Toast.LENGTH_SHORT).show();
                     return;
                 }else{
-                    Intent i = new Intent();
-                    i.setAction("com.detroitpencil.jjpod.dpcapp.ADDITIONAL_INFO");
-                    i.putExtra("location", location);
-                    i.putExtra("wcw", wcw);
-                    i.putExtra("bsnVersion", bsnVersion);
-                    i.putExtra("boxOption", boxOption);
-                    i.putExtra("bsnOption", bsnOption);
-                    i.putExtra("iOption", iOption);
-                    sendBroadcast(i);
+                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(view.getContext());
+                    SharedPreferences.Editor editor = prefs.edit();
+                    editor.putString("location", location);
+                    editor.putString("wcw", wcw);
+                    editor.putString("bsnVersion", bsnVersion);
+                    editor.putString("boxOption", boxOption);
+                    editor.putString("bsnOption", bsnOption);
+                    editor.putString("iOption", iOption);
+                    editor.commit();
 
                     Intent j = new Intent(AdditionalInfoScreen.this, ReviewScreen.class);
                     j.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
