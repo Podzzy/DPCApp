@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Spinner;
@@ -61,11 +62,16 @@ public class ReviewP1InfoScreen extends AppCompatActivity implements AdapterView
 
     final String TAG = Phase2InboxScreen.class.getSimpleName();
 
+    Button  nextScreenButton;
+
     private FirebaseAuth mAuth;
     FirebaseDatabase fd = null;
     DatabaseReference myRef = null;
+    DatabaseReference fromRef, toRef ;
 
     String inboxCompany;
+
+    Phase1Info phase1Info;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,6 +86,23 @@ public class ReviewP1InfoScreen extends AppCompatActivity implements AdapterView
 
         Intent j = getIntent();
         inboxCompany = j.getStringExtra("inboxCompany");
+
+        fromRef = FirebaseDatabase.getInstance().getReferenceFromUrl("https://dpcapp-jjpod.firebaseio.com/phase2inbox/");
+        toRef = FirebaseDatabase.getInstance().getReferenceFromUrl("https://dpcapp-jjpod.firebaseio.com/phase3inbox/");
+
+        nextScreenButton = findViewById(R.id.nextScreeButton);
+        nextScreenButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                moveFirebaseRecord(fromRef, toRef, inboxCompany);
+                //fromRef.child(inboxCompany).removeValue();
+
+                Intent i = new Intent(ReviewP1InfoScreen.this, PricingProfilesScreen1.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                i.putExtra("inboxCompany", inboxCompany);
+                startActivity(i);
+            }
+        });
 
 
          finalSalespersonText= findViewById(R.id.finalSalespersonText2);
@@ -135,7 +158,7 @@ public class ReviewP1InfoScreen extends AppCompatActivity implements AdapterView
         myRef.child("phase2inbox").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                Phase1Info phase1Info = dataSnapshot.child(inboxCompany).getValue(Phase1Info.class);
+                phase1Info = dataSnapshot.child(inboxCompany).getValue(Phase1Info.class);
                 decompInfo(phase1Info);
                 updateUI();
                 Log.w(TAG,phase1Info.getSalespersonName());
@@ -296,6 +319,38 @@ public class ReviewP1InfoScreen extends AppCompatActivity implements AdapterView
         else
             finalApprovalRouting.setChecked(true);
 
+    }
+
+    public void moveFirebaseRecord(final DatabaseReference fromPath, final DatabaseReference toPath, final String key)
+    {
+        fromPath.child(key).addListenerForSingleValueEvent(new ValueEventListener()
+        {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot)
+            {
+                toPath.child(dataSnapshot.getKey()).setValue(dataSnapshot.getValue(), new DatabaseReference.CompletionListener()
+                {
+                    @Override
+                    public void onComplete(DatabaseError firebaseError, DatabaseReference firebase)
+                    {
+                        if (firebaseError != null)
+                        {
+                            Log.w(TAG, "onComplete: SUCCESS");
+                        }
+                        else
+                        {
+                            Log.w(TAG, "onComplete: SUCCESS");
+                        }
+                    }
+                });
+            }
+
+            @Override
+            public void onCancelled(DatabaseError firebaseError)
+            {
+                System.out.println("Copy failed");
+            }
+        });
     }
 
 

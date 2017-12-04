@@ -30,7 +30,9 @@
         <activity android:name=".AdditionalInfoScreen" />
         <activity android:name=".ReviewScreen" />
         <activity android:name=".Phase2InboxScreen" />
-        <activity android:name=".ReviewP1InfoScreen"></activity>
+        <activity android:name=".ReviewP1InfoScreen" />
+        <activity android:name=".PricingProfilesScreen1" />
+        <activity android:name=".PricingProfilesScreen2"></activity>
     </application>
 
 </manifest>
