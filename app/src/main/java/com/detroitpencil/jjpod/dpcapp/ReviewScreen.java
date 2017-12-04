@@ -195,6 +195,36 @@ public class ReviewScreen extends AppCompatActivity implements AdapterView.OnIte
             dRow6.setVisibility(View.GONE);
             dRow7.setVisibility(View.GONE);
             dRow8.setVisibility(View.GONE);
+
+            dAddress1 = address1;
+            dAddress2 = address2;
+            dCity = city;
+            dState = state;
+            dZip = zip;
+            dPhone = phone;
+            dCell = cell;
+            dFax = fax;
+            dBuyer = apContactName;
+            dBuyerPhone = apPhone;
+            dBuyerCell = apCell;
+            dBuyerOther = apOther;
+            dNotes = notes;
+
+
+           /* finaldAddress1Text.setText(address1);
+            finalDAddress2Text.setText(address2);
+            finalDCityText.setText(city);
+            finalDStateText.setText(state);
+            finalDZipText.setText(zip);
+            finalDPhoneText.setText(phone);
+            //finalDFaxText.setText(dFax);
+            finalDCellText.setText(cell);
+            finalBuyerText.setText(apContactName);
+            finalBuyerPhoneText.setText(apPhone);
+            finalBuyerCellText.setText(apCell);
+            // finalBuyerOtherText.setText(dBuyerOther);
+            finalDNotesText.setText(notes);
+            */
         }
 
         //Make sure spinners show correct data
@@ -255,7 +285,7 @@ public class ReviewScreen extends AppCompatActivity implements AdapterView.OnIte
         String userID = user.getUid();
         Phase1Info phase1Info = new Phase1Info(salesName, salesID, company, companyName, address1, address2,
                 city, state, zip, phone, fax, cell, apContactName, apPhone, apCell, apOther, apEmail, invoices,
-                poOption, taxable, payment, notes, dAddress1, dAddress2, dCity, dState, dZip, dPhone, dFax, dCell,
+                poOption, taxable, payment, notes, deliveryCheckOption, dAddress1, dAddress2, dCity, dState, dZip, dPhone, dFax, dCell,
                 dBuyer, dBuyerPhone, dBuyerCell, dBuyerOther, dNotes, location, wcw, boxOption, bsnOption, bsnVersion, iOption);
 
         myRef.child("phase2inbox").child(companyName).setValue(phase1Info);

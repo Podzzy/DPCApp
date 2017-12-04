@@ -1,9 +1,13 @@
 package com.detroitpencil.jjpod.dpcapp;
 
+import android.app.LauncherActivity;
+import android.content.Intent;
 import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -43,7 +47,7 @@ public class Phase2InboxScreen extends AppCompatActivity {
         listView = findViewById(R.id.listView);
         arrayList = new ArrayList<String>();
 
-        adapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_item, arrayList);
+        adapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, arrayList);
         listView.setAdapter(adapter);
 
         mRef.child("phase2inbox").addValueEventListener(new ValueEventListener() {
@@ -62,6 +66,17 @@ public class Phase2InboxScreen extends AppCompatActivity {
             @Override
             public void onCancelled(DatabaseError databaseError) {
 
+            }
+        });
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                String companyName = listView.getItemAtPosition(i).toString();
+                Intent intent = new Intent(Phase2InboxScreen.this, ReviewP1InfoScreen.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                intent.putExtra("inboxCompany", companyName);
+                startActivity(intent);
             }
         });
 

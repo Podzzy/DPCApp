@@ -28,8 +28,9 @@
         <activity android:name=".DeliveryScreen2" />
         <activity android:name=".DeliveryScreen3" />
         <activity android:name=".AdditionalInfoScreen" />
-        <activity android:name=".ReviewScreen"></activity>
-        <activity android:name=".Phase2InboxScreen"></activity>
+        <activity android:name=".ReviewScreen" />
+        <activity android:name=".Phase2InboxScreen" />
+        <activity android:name=".ReviewP1InfoScreen"></activity>
     </application>
 
 </manifest>

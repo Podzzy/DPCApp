@@ -1,0 +1,659 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:fillViewport="true">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="8dp">
+
+        <TextView
+            android:text="Salesperson Info"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimaryDark"/>
+        <TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="Salesperson:"
+                android:textSize="12sp"
+                android:gravity="end"/>
+
+            <EditText
+                android:id="@+id/finalSalespersonText2"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:text="Craig Contrill"
+                android:textSize="12sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="Sales ID:"
+                android:textSize="12sp"
+                android:textAlignment="center"/>
+
+            <EditText
+                android:id="@+id/finalSalesIDText2"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:text="123456"
+                android:textSize="12sp" />
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:text="Sales Company:"
+                android:textSize="12sp"
+                android:gravity="end"/>
+
+            <Spinner
+                android:id="@+id/finalSalesCompanySpinner2"
+                style="@style/Widget.AppCompat.Spinner.Underlined"
+                android:layout_width="0dp"
+                android:layout_weight="1" />
+        </TableRow>
+
+        <TextView
+            android:layout_marginTop="16dp"
+            android:text="Customer Info"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimaryDark"/>
+        <TableRow>
+            <TextView
+                android:text="Company name:"
+                android:textSize="12sp"
+                android:gravity="end"/>
+
+            <EditText
+                android:id="@+id/finalCompanyText2"
+                android:layout_weight="1"
+                android:text="Company name"
+                android:textSize="12sp" />
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:text="Adrress 1:"
+                android:textSize="12sp"
+                android:layout_width="wrap_content"
+                android:gravity="end"/>
+
+            <EditText
+                android:id="@+id/finalAddress1Text2"
+                android:layout_weight="1"
+                android:text="Address 1"
+                android:textSize="12sp" />
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:text="Address 2:"
+                android:layout_width="wrap_content"
+                android:textSize="12sp"
+                android:gravity="end"/>
+
+            <EditText
+                android:id="@+id/finalAddress2Text2"
+                android:layout_weight="1"
+                android:text="Address 2"
+                android:textSize="12sp" />
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:text="City:"
+                android:layout_width="wrap_content"
+                android:textSize="12sp"
+                android:gravity="end"/>
+
+            <EditText
+                android:id="@+id/finalCityText2"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:text="City"
+                android:textSize="12sp" />
+            <TextView
+                android:text="State:"
+                android:layout_width="0dp"
+                android:textSize="12sp"
+                android:layout_weight="1"
+                android:gravity="end"/>
+
+            <EditText
+                android:id="@+id/finalStateText2"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:text="State"
+                android:textSize="12sp" />
+            <TextView
+                android:text="Zip:"
+                android:layout_width="0dp"
+                android:textSize="12sp"
+                android:layout_weight="1"
+                android:gravity="end"/>
+
+            <EditText
+                android:id="@+id/finalZipText2"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:text="Zip"
+                android:textSize="12dp" />
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:text="Phone:"
+                android:layout_width="wrap_content"
+                android:textSize="12sp"
+                android:gravity="end"/>
+
+            <EditText
+                android:id="@+id/finalPhoneText2"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:text="Phone #"
+                android:textSize="12sp" />
+
+            <TextView
+                android:text="Cell:"
+                android:layout_width="0dp"
+                android:textSize="12sp"
+                android:layout_weight="1"
+                android:gravity="end"/>
+
+            <EditText
+                android:id="@+id/finalCellText2"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:text="Cell #"
+                android:textSize="12dp" />
+        </TableRow>
+        <TextView
+            android:layout_marginTop="16dp"
+            android:text="Primary AP Contact Info"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimaryDark"/>
+        <TableRow>
+            <TextView
+                android:text="Primary Contact:"
+                android:textSize="12sp"
+                android:gravity="end"/>
+
+            <EditText
+                android:id="@+id/finalAPContactText2"
+                android:layout_weight="1"
+                android:text="Contact name"
+                android:textSize="12sp" />
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:text="Phone:"
+                android:layout_width="wrap_content"
+                android:textSize="12sp"
+                android:gravity="end"/>
+
+            <EditText
+                android:id="@+id/finalAPPhoneText2"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:text="Phone #"
+                android:textSize="12sp" />
+            <TextView
+                android:text="Cell:"
+                android:layout_width="0dp"
+                android:textSize="12sp"
+                android:layout_weight="1"
+                android:gravity="end"/>
+
+            <EditText
+                android:id="@+id/finalAPCellText2"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:text="Cell #"
+                android:textSize="12sp" />
+
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:text="Email:"
+                android:textSize="12sp"
+                android:gravity="end"/>
+
+            <EditText
+                android:id="@+id/finalAPEmailText2"
+                android:layout_width="0dp"
+                android:layout_weight="3"
+                android:text="company@something.com"
+                android:textSize="12sp" />
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:text="Email Invoices:"
+                android:textSize="12sp"
+                android:gravity="end"
+                android:layout_gravity="center_vertical"/>
+            <RadioGroup
+                android:textSize="12sp"
+                android:layout_weight="2"
+                android:layout_width="0dp"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/finalEmailYes2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="YES"
+                    android:textSize="12sp" />
+
+                <RadioButton
+                    android:id="@+id/finalEmailNo2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="NO"
+                    android:textSize="12sp" />
+            </RadioGroup>
+        </TableRow>
+
+        <TextView
+            android:text="Additional Info"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"
+            android:textColor="@color/colorPrimaryDark"/>
+        <TableRow>
+            <TextView
+                android:gravity="end"
+                android:layout_gravity="center_vertical"
+                android:text="P.O. Required:"
+                android:textSize="12sp" />
+
+            <RadioGroup
+                android:layout_width="150dp"
+                android:orientation="horizontal"
+                android:textSize="12sp"
+                android:width="0dp"
+                android:layout_weight="1">
+
+                <RadioButton
+                    android:id="@+id/finalPOYes2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="YES"
+                    android:textSize="12sp" />
+
+                <RadioButton
+                    android:id="@+id/finalPONo2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="NO"
+                    android:textSize="12sp" />
+            </RadioGroup>
+            <TextView
+                android:text="Taxable:"
+                android:layout_gravity="center_vertical"
+                android:textSize="12sp"
+                android:gravity="end"/>
+            <RadioGroup
+                android:textSize="12sp"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/finalTaxYes2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="YES"
+                    android:textSize="12sp" />
+
+                <RadioButton
+                    android:id="@+id/finalTaxNo2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="NO"
+                    android:textSize="12sp" />
+            </RadioGroup>
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:text="Payment Type:"
+                android:textSize="12sp"
+                android:gravity="end"/>
+
+            <Spinner
+                android:id="@+id/finalPaymentSpinner2"
+                style="@style/Widget.AppCompat.Spinner.Underlined"
+                android:layout_weight="1"
+                android:textSize="12sp" />
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:text="Notes:"
+                android:textSize="12sp"
+                android:gravity="end"/>
+
+            <EditText
+                android:id="@+id/finalNotesText2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="textMultiLine"
+                android:textSize="12sp" />
+        </TableRow>
+        <TextView
+            android:background="@color/colorPrimaryDark"
+            android:layout_width="match_parent"
+
+            android:layout_marginTop="16dp"/>
+        <TextView
+            android:text="Delivery Info"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"
+            android:textColor="@color/colorPrimaryDark"/>
+        <TableRow>
+            <TextView
+                android:text="Same as Billing?"
+                android:layout_gravity="center_vertical"
+                android:textSize="12sp"
+                android:gravity="end"/>
+            <RadioGroup
+                android:textSize="12sp"
+                android:layout_weight="2"
+                android:layout_width="0dp"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/billingCheckYes2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="YES"
+                    android:textSize="12sp" />
+
+                <RadioButton
+                    android:id="@+id/billingCheckNo2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="NO"
+                    android:textSize="12sp" />
+            </RadioGroup>
+        </TableRow>
+        <TableRow android:id="@+id/dRow12">
+            <TextView
+                android:text="Address 1:"
+                android:textSize="12sp"
+                android:layout_width="wrap_content"
+                android:gravity="end"/>
+
+            <EditText
+                android:id="@+id/finalDAddress1Text2"
+                android:layout_weight="1"
+                android:text="Address 1"
+                android:textSize="12sp" />
+        </TableRow>
+        <TableRow android:id="@+id/dRow42">
+            <TextView
+                android:text="Address 2:"
+                android:layout_width="wrap_content"
+                android:textSize="12sp"
+                android:gravity="end"/>
+
+            <EditText
+                android:id="@+id/finalDAddress2Text2"
+                android:layout_weight="1"
+                android:text="Address 2"
+                android:textSize="12sp" />
+        </TableRow>
+        <TableRow android:id="@+id/dRow22">
+            <TextView
+                android:text="City:"
+                android:layout_width="wrap_content"
+                android:textSize="12sp"
+                android:gravity="end"/>
+
+            <EditText
+                android:id="@+id/finalDCityText2"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:text="City"
+                android:textSize="12sp" />
+            <TextView
+                android:text="State:"
+                android:layout_width="0dp"
+                android:textSize="12sp"
+                android:layout_weight="1"
+                android:gravity="end"/>
+
+            <EditText
+                android:id="@+id/finalDStateText2"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:text="State"
+                android:textSize="12sp" />
+            <TextView
+                android:text="Zip:"
+                android:layout_width="0dp"
+                android:textSize="12sp"
+                android:layout_weight="1"
+                android:gravity="end"/>
+
+            <EditText
+                android:id="@+id/finalDZipText2"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:text="Zip"
+                android:textSize="12dp" />
+        </TableRow>
+        <TableRow android:id="@+id/dRow32">
+            <TextView
+                android:text="Phone:"
+                android:layout_width="wrap_content"
+                android:textSize="12sp"
+                android:gravity="end"/>
+
+            <EditText
+                android:id="@+id/finalDPhoneText2"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:text="Phone #"
+                android:textSize="12sp" />
+
+            <TextView
+                android:text="Cell:"
+                android:layout_width="0dp"
+                android:textSize="12sp"
+                android:layout_weight="1"
+                android:gravity="end"/>
+            <EditText
+                android:id="@+id/finalDCellText2"
+                android:text="Cell #"
+                android:textSize="12dp"
+                android:layout_weight="2"
+                android:layout_width="0dp"/>
+        </TableRow>
+
+        <TextView android:id="@+id/dRow82"
+            android:layout_marginTop="16dp"
+            android:text="Primary Buyer Info"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimaryDark"/>
+
+        <TableRow android:id="@+id/dRow52">
+            <TextView
+                android:text="Primary Buyer:"
+                android:textSize="12sp"
+                android:gravity="end"/>
+            <EditText
+                android:id="@+id/finalBuyerText2"
+                android:text="Buyer name"
+                android:textSize="12sp"
+                android:layout_weight="1"/>
+        </TableRow>
+        <TableRow android:id="@+id/dRow62">
+            <TextView
+                android:text="Phone:"
+                android:layout_width="wrap_content"
+                android:textSize="12sp"
+                android:gravity="end"/>
+            <EditText
+                android:id="@+id/finalBuyerPhoneText2"
+                android:text="Phone #"
+                android:textSize="12sp"
+                android:layout_weight="2"
+                android:layout_width="0dp"/>
+            <TextView
+                android:text="Cell:"
+                android:layout_width="0dp"
+                android:textSize="12sp"
+                android:layout_weight="1"
+                android:gravity="end"/>
+            <EditText
+                android:id="@+id/finalBuyerCellText2"
+                android:text="Cell #"
+                android:textSize="12sp"
+                android:layout_weight="2"
+                android:layout_width="0dp"/>
+
+        </TableRow>
+        <TableRow android:id="@+id/dRow72">
+            <TextView
+                android:text="Notes:"
+                android:textSize="12sp"
+                android:gravity="end"/>
+            <EditText
+                android:id="@+id/finalDeliveryNotesText2"
+                android:inputType="textMultiLine"
+                android:textSize="12sp"
+                android:layout_weight="1"/>
+        </TableRow>
+        <TextView
+            android:layout_width="match_parent"
+            android:background="@color/colorPrimaryDark"
+            android:layout_marginTop="16dp"/>
+        <TextView
+            android:text="Additional Customer Info"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"
+            android:textColor="@color/colorPrimaryDark"/>
+        <TableRow>
+            <TextView
+                android:text="Delivery locations outside/zone/US"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:gravity="end"
+                android:layout_gravity="center_vertical"
+                android:textSize="12sp"/>
+            <EditText
+                android:id="@+id/finalLocationsText2"
+                android:layout_width="0dp"
+                android:layout_weight="3"
+                android:textSize="12sp"
+                android:text="Locations"/>
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:text="WCW/Employees"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:gravity="end"
+                android:layout_gravity="center_vertical"
+                android:textSize="12sp"/>
+            <EditText
+                android:id="@+id/finalWCWText2"
+                android:layout_width="0dp"
+                android:layout_weight="3"
+                android:textSize="12sp"
+                android:text="Employees"/>
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:text="Box Program:"
+                android:gravity="end"
+                android:layout_gravity="center_vertical"
+                android:textSize="12sp"/>
+            <RadioGroup
+                android:textSize="12sp"
+                android:layout_weight="2"
+                android:layout_width="0dp"
+                android:orientation="horizontal">
+                <RadioButton
+                    android:id="@+id/finalBoxYes2"
+                    android:text="YES"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:textSize="12sp"/>
+                <RadioButton
+                    android:id="@+id/finalBoxNo2"
+                    android:text="NO"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:textSize="12sp"/>
+            </RadioGroup>
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:text="BSN Given:"
+                android:gravity="end"
+                android:layout_gravity="center_vertical"
+                android:textSize="12sp"/>
+            <RadioGroup
+                android:textSize="12sp"
+                android:orientation="horizontal"
+                android:layout_width="0dp"
+                android:layout_weight="3">
+                <RadioButton
+                    android:id="@+id/finalBSNYes2"
+                    android:text="YES"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:textSize="12sp"/>
+                <RadioButton
+                    android:id="@+id/finalBSNNo2"
+                    android:text="NO"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:textSize="12sp"/>
+            </RadioGroup>
+            <TextView
+                android:text="Version/Year:"
+                android:gravity="end"
+                android:textSize="12sp"
+                android:width="0dp"
+                android:layout_weight="1"/>
+            <EditText
+                android:id="@+id/finalVersionText2"
+                android:textSize="12sp"
+                android:text="Version"
+                android:layout_width="0dp"
+                android:layout_weight="2"/>
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:text="Internet Set Up:"
+                android:gravity="end"
+                android:layout_gravity="center_vertical"
+                android:textSize="12sp"/>
+            <RadioGroup
+                android:textSize="12sp"
+                android:orientation="horizontal"
+                android:layout_weight="1">
+                <RadioButton
+                    android:id="@+id/finalMasterUser2"
+                    android:text="Master User"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:textSize="12sp"/>
+                <RadioButton
+                    android:id="@+id/finalApprovalRouting2"
+                    android:text="Approval Routing"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:textSize="12sp"/>
+            </RadioGroup>
+        </TableRow>
+        <TextView
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:layout_width="match_parent"
+            android:background="@color/colorPrimaryDark"/>
+        <Button
+            android:id="@+id/finalSubmitButton2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="NEXT"
+            android:layout_marginBottom="16dp"/>
+    </TableLayout>
+</ScrollView>
