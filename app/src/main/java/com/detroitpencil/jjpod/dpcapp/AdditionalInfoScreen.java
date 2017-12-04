@@ -112,11 +112,11 @@ public class AdditionalInfoScreen extends AppCompatActivity {
         switch(view.getId()){
             case R.id.iMaster:
                 if(checked)
-                   iOption = "MasterUser";
+                   iOption = "master user";
                 break;
             case R.id.iApproval:
                 if(checked)
-                    iOption = "Approval Routing";
+                    iOption = "approval routing";
                 break;
             default:
                 break;

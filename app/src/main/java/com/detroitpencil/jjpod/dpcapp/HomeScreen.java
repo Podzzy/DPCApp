@@ -55,10 +55,17 @@ public class HomeScreen extends AppCompatActivity {
         createButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(view.getContext(), CreateScreen1.class);
+                Intent i = new Intent(view.getContext(), CreateScreen2.class); //MAKE SURE TO CHANGE THIS BACK!!!!******************************************
                 i.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                 startActivity(i);
 
+            }
+        });
+
+        inboxButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(HomeScreen.this, Phase2InboxScreen.class));
             }
         });
 
@@ -77,13 +84,22 @@ public class HomeScreen extends AppCompatActivity {
         mRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-              phaseText.setText(String.valueOf(getCurrentPhase(dataSnapshot)));
+             /* phaseText.setText(String.valueOf(getCurrentPhase(dataSnapshot)));
                 currentPhase = phaseText.getText().toString();
                 if(currentPhase.equals("Phase 1")){
                     createButton.setVisibility(View.VISIBLE);
                 }else{
                     inboxButton.setVisibility(View.VISIBLE);
+                }*/
+             User user = dataSnapshot.child("users").child(userID).getValue(User.class);
+             currentPhase = user.getPhase();
+                Toast.makeText(HomeScreen.this, currentPhase, Toast.LENGTH_SHORT).show();
+                if(currentPhase.equals("Phase 1")){
+                    createButton.setVisibility(View.VISIBLE);
+                }else {
+                    inboxButton.setVisibility(View.VISIBLE);
                 }
+
             }
 
             @Override
@@ -96,18 +112,18 @@ public class HomeScreen extends AppCompatActivity {
 
     }
 
-    private String getCurrentPhase(DataSnapshot dataSnapshot) {
+   /* private String getCurrentPhase(DataSnapshot dataSnapshot) {
         String cPhase = null;
         for(DataSnapshot ds: dataSnapshot.getChildren()){
             User user = new User();
-            user.setPhase(ds.child(userID).getValue(User.class).getPhase());
+            user.setPhase(ds.child("users").child(userID).getValue(User.class).getPhase());
             cPhase = user.getPhase();
             Log.d(TAG, "showData: phase: " + cPhase);
         }
 
         return cPhase;
 
-    }
+    }*/
 
     @Override
     public void onBackPressed(){

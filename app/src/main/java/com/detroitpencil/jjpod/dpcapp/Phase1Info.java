@@ -5,14 +5,14 @@ package com.detroitpencil.jjpod.dpcapp;
  */
 
 public class Phase1Info {
-    String salespersonName, salesID, sCompany, companyName, address1, address2, city,
+     public String salespersonName, salesID, sCompany, companyName, address1, address2, city,
             state, zip, phone, fax, cell, apName, apPhone, apCell, apOther, apEmail,
             apEmailInvoices, poRequired, taxable, pType, notes, dAddress1, dAddress2,
             dCity, dState, dZip, dPhone, dFax, dCell, pBuyer, pBuyerPhone, pBuyerCell, pBuyerOther,
             specialNotes, deliveryLocations, wcw, boxProgram, BSN, version, iSetup;
 
-    public Phase1Info(String salespersonName) {
-        this.salespersonName = salespersonName;
+    public Phase1Info() {
+
     }
 
     public Phase1Info(String salespersonName, String salesID, String sCompany, String companyName, String address1,
@@ -63,5 +63,13 @@ public class Phase1Info {
         this.BSN = BSN;
         this.version = version;
         this.iSetup = iSetup;
+    }
+
+    public String getCompanyName(){
+        return companyName;
+    }
+
+    public void setCompanyName(String cName){
+        companyName = cName;
     }
 }

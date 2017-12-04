@@ -8,24 +8,56 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.view.WindowManager;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Spinner;
+import android.widget.TableRow;
+import android.widget.TextView;
 import android.widget.Toast;
 
-public class ReviewScreen extends AppCompatActivity {
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+public class ReviewScreen extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     String salesName, salesID, company, companyName, address1, address2= "", city, state, zip, phone = "", fax="", cell="",
             apContactName="", apPhone="", apCell="", apOther="", apEmail="", invoices="", poOption, taxable, payment, notes, deliveryCheckOption,
             dAddress1, dAddress2= "", dCity, dState, dZip,dPhone = "", dFax = "", dCell = "", dBuyer ="", dBuyerPhone ="", dBuyerCell ="", dBuyerOther ="", dNotes = "",
             boxOption = "", bsnOption="", wcw ="", iOption="", bsnVersion = "", location="";
 
+    String[] companies, paymentOptions;
+
+    Button finalSubmitButton;
+
+    private FirebaseAuth mAuth;
+    FirebaseDatabase fd = null;
+    DatabaseReference myRef = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_review_screen);
         getSupportActionBar().setTitle("REVIEW YOUR INFORMATION");
+
+        mAuth = FirebaseAuth.getInstance();
+        fd = FirebaseDatabase.getInstance();
+        myRef = fd.getReference();
+
+        finalSubmitButton = findViewById(R.id.finalSubmitButton);
+        finalSubmitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                updateDB();
+                Toast.makeText(ReviewScreen.this, "DB Updated", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         EditText finalSalespersonText= findViewById(R.id.finalSalespersonText), finalSalesIDText= findViewById(R.id.finalSalesIDText),
                 finalCompanyText= findViewById(R.id.finalCompanyText), finalAddress1Text= findViewById(R.id.finalAddress1Text),
@@ -46,14 +78,32 @@ public class ReviewScreen extends AppCompatActivity {
 
         Spinner finalSalesCompanySpinner = findViewById(R.id.finalSalesCompanySpinner) , finalPaymentSpinner = findViewById(R.id.finalPaymentSpinner);
 
+        finalSalesCompanySpinner.setOnItemSelectedListener(this);
+        companies = new  String[]{"Detroit Pencil Company", "Supply Geeks", "FRIS"};
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, companies);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        finalSalesCompanySpinner.setAdapter(adapter);
+
+        finalPaymentSpinner.setOnItemSelectedListener(this);
+        paymentOptions = new  String[]{"Net 30", "Credit Card", "ACH"};
+        ArrayAdapter<String> pAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, paymentOptions);
+        pAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        finalPaymentSpinner.setAdapter(pAdapter);
+
         RadioButton finalEmailyes = findViewById(R.id.finalEmailYes), finalEmailNo = findViewById(R.id.finalEmailNo),
+                finalBillingCheckYes = findViewById(R.id.billingCheckYes), finalBillingCheckNo = findViewById(R.id.billingCheckNo),
                 finalPOYes = findViewById(R.id.finalPOYes), finalPONo = findViewById(R.id.finalPONo),
                 finalTaxYes = findViewById(R.id.finalTaxYes), finalTaxNo = findViewById(R.id.finalTaxNo),
                 finalBoxYes = findViewById(R.id.finalBoxYes), finalBoxNo = findViewById(R.id.finalBoxNo),
                 finalBSNYes = findViewById(R.id.finalBSNYes), finalBSNNo = findViewById(R.id.finalBSNNo),
                 finalMasterUser = findViewById(R.id.finalMasterUser), finalApprovalRouting = findViewById(R.id.finalApprovalRouting);
 
+        TableRow dRow1 = findViewById(R.id.dRow1), dRow2 = findViewById(R.id.dRow2),
+                dRow3 = findViewById(R.id.dRow3), dRow4 = findViewById(R.id.dRow4),
+                dRow5 = findViewById(R.id.dRow5), dRow6 = findViewById(R.id.dRow6),
+                dRow7 = findViewById(R.id.dRow7);
 
+        TextView dRow8 = findViewById(R.id.dRow8);
 
         //Get all of the data from earlier activities
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
@@ -102,9 +152,7 @@ public class ReviewScreen extends AppCompatActivity {
 
         //Set data review page.
         finalSalespersonText.setText(salesName);
-        finalSalespersonText.setEnabled(false);
         finalSalesIDText.setText(salesID);
-        finalSalesIDText.setEnabled(false);
         finalCompanyText.setText(companyName);
         finalAddress1Text.setText(address1);
         finalAddress2Text.setText(address2);
@@ -137,5 +185,79 @@ public class ReviewScreen extends AppCompatActivity {
         finalLocationText.setText(location);
         finalBSNVersionText.setText(bsnVersion);
 
+        //Remove delivery section if delivery info is the same as billing.
+        if(deliveryCheckOption.equals("yes")){
+            dRow1.setVisibility(View.GONE);
+            dRow2.setVisibility(View.GONE);
+            dRow3.setVisibility(View.GONE);
+            dRow4.setVisibility(View.GONE);
+            dRow5.setVisibility(View.GONE);
+            dRow6.setVisibility(View.GONE);
+            dRow7.setVisibility(View.GONE);
+            dRow8.setVisibility(View.GONE);
+        }
+
+        //Make sure spinners show correct data
+        finalSalesCompanySpinner.setSelection(adapter.getPosition(company));
+        finalPaymentSpinner.setSelection(pAdapter.getPosition(payment));
+
+        //Set radio buttons
+        if(deliveryCheckOption.equals("yes"))
+            finalBillingCheckYes.setChecked(true);
+        else
+            finalBillingCheckNo.setChecked(true);
+
+        if(poOption.equals("yes"))
+            finalPOYes.setChecked(true);
+        else
+            finalPONo.setChecked(true);
+
+        if(taxable.equals("yes"))
+            finalTaxYes.setChecked(true);
+        else
+            finalTaxNo.setChecked(true);
+
+        if(invoices.equals("yes"))
+            finalEmailyes.setChecked(true);
+        else
+            finalEmailNo.setChecked(true);
+
+        if(bsnOption.equals("yes"))
+            finalBSNYes.setChecked(true);
+        else
+            finalBSNNo.setChecked(true);
+
+        if(boxOption.equals("yes"))
+            finalBoxYes.setChecked(true);
+        else
+            finalBoxNo.setChecked(true);
+
+        if(iOption.equals("master user"))
+            finalMasterUser.setChecked(true);
+        else
+            finalApprovalRouting.setChecked(true);
+
+
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> adapterView) {
+
+    }
+
+    public void updateDB(){
+        FirebaseUser user = mAuth.getCurrentUser();
+        String userID = user.getUid();
+        Phase1Info phase1Info = new Phase1Info(salesName, salesID, company, companyName, address1, address2,
+                city, state, zip, phone, fax, cell, apContactName, apPhone, apCell, apOther, apEmail, invoices,
+                poOption, taxable, payment, notes, dAddress1, dAddress2, dCity, dState, dZip, dPhone, dFax, dCell,
+                dBuyer, dBuyerPhone, dBuyerCell, dBuyerOther, dNotes, location, wcw, boxOption, bsnOption, bsnVersion, iOption);
+
+        myRef.child("phase2inbox").child(companyName).setValue(phase1Info);
     }
 }

@@ -27,7 +27,7 @@ public class DeliveryCheckScreen extends AppCompatActivity {
             public void onClick(View view) {
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(view.getContext());
                 SharedPreferences.Editor editor = prefs.edit();
-                editor.putString("deliveryCheckOption", "Yes");
+                editor.putString("deliveryCheckOption", "yes");
                 editor.commit();
 
                 startActivity(new Intent(view.getContext(), ReviewScreen.class));
@@ -39,7 +39,7 @@ public class DeliveryCheckScreen extends AppCompatActivity {
             public void onClick(View view) {
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(view.getContext());
                 SharedPreferences.Editor editor = prefs.edit();
-                editor.putString("deliveryCheckOption", "No");
+                editor.putString("deliveryCheckOption", "no");
                 editor.commit();
 
                 Intent i = new Intent(view.getContext(), DeliveryScreen1.class);

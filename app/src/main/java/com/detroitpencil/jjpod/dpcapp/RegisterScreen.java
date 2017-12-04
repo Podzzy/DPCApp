@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -111,6 +112,9 @@ public class RegisterScreen extends AppCompatActivity implements AdapterView.OnI
 
         progressDialog.setMessage("Registering User...");
         progressDialog.show();
+        progressDialog.setCanceledOnTouchOutside(false);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
+                WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
 
 
         mAuth.createUserWithEmailAndPassword(email,password)
@@ -118,6 +122,7 @@ public class RegisterScreen extends AppCompatActivity implements AdapterView.OnI
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
+                            getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
                             FirebaseUser user = mAuth.getCurrentUser();
                             String userID = user.getUid();
                             User newUser = new User(email, password, currentPhase);
@@ -128,6 +133,7 @@ public class RegisterScreen extends AppCompatActivity implements AdapterView.OnI
                             finish();
                             startActivity(new Intent(getApplicationContext(), LoginScreen.class));
                         }else{
+                            getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
                             Toast.makeText(RegisterScreen.this, "Failed to create user:" + task.getException().getMessage(), Toast.LENGTH_LONG).show();
                             progressDialog.dismiss();
                         }

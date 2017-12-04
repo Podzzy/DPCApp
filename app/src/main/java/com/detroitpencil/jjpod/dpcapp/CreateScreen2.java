@@ -57,7 +57,7 @@ public class CreateScreen2 extends AppCompatActivity {
                     editor.putString("zip",zip);
                     editor.commit();
 
-                    Intent j = new Intent(CreateScreen2.this, CreateScreen3.class);
+                    Intent j = new Intent(CreateScreen2.this, ReviewScreen.class);
                     j.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                     startActivity(j);
                 }
