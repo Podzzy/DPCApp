@@ -13,10 +13,11 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 public class PricingProfilesScreen1 extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
-    String paperBrand, tonerBrand, matrix, USAExpress;
+    String paperBrand, tonerBrand, matrix, USAExpress, inboxCompany;
 
     String[] paperBrands, tonerBrands, matrixItems;
 
@@ -36,7 +37,7 @@ public class PricingProfilesScreen1 extends AppCompatActivity implements Adapter
         getSupportActionBar().setTitle("PRICING PROFILE");
 
         Intent j = getIntent();
-        j.getStringExtra("inboxCompany");
+        inboxCompany = j.getStringExtra("inboxCompany");
 
         paperSpinner = findViewById(R.id.paperSpinner);
         tonerSpinner = findViewById(R.id.tonerSpinner);
@@ -74,12 +75,18 @@ public class PricingProfilesScreen1 extends AppCompatActivity implements Adapter
                 editor.putString("tonerBrand", tonerBrand);
                 editor.putString("matrix", matrix);
                 editor.putString("USAExpress", USAExpress);
+                editor.putString("inboxCompany", inboxCompany);
                 editor.commit();
 
                 Log.w(TAG, "Paper: "+paperBrand);
                 Log.w(TAG, "Toner: "+tonerBrand);
                 Log.w(TAG, "Matrix: "+matrix);
                 Log.w(TAG, "USAExpress: "+USAExpress);
+
+                if(USAExpress.equals("")){
+                    Toast.makeText(PricingProfilesScreen1.this, "USAExpress option required.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
 
                 Intent j = new Intent(view.getContext(), PricingProfilesScreen2.class);

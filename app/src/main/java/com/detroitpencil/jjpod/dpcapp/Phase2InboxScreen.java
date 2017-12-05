@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -31,6 +32,8 @@ public class Phase2InboxScreen extends AppCompatActivity {
     FirebaseDatabase mfirebaseDatabase;
     DatabaseReference mRef;
 
+    TextView emptyText;
+
     final String TAG = Phase2InboxScreen.class.getSimpleName();
 
     @Override
@@ -40,12 +43,19 @@ public class Phase2InboxScreen extends AppCompatActivity {
 
         getSupportActionBar().setTitle("INBOX");
 
+        emptyText = findViewById(R.id.emptyText);
+
         mAuth = FirebaseAuth.getInstance();
         mfirebaseDatabase= FirebaseDatabase.getInstance();
         mRef = mfirebaseDatabase.getReference();
 
         listView = findViewById(R.id.listView);
         arrayList = new ArrayList<String>();
+
+        if(arrayList.isEmpty())
+            emptyText.setVisibility(View.VISIBLE);
+
+
 
         adapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, arrayList);
         listView.setAdapter(adapter);
@@ -55,8 +65,12 @@ public class Phase2InboxScreen extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for(DataSnapshot ds : dataSnapshot.getChildren()){
                    String cName =  ds.getKey();
+                   String date = (String) ds.child(cName).child("submitDate").getValue();
+                   Toast.makeText(Phase2InboxScreen.this, date, Toast.LENGTH_SHORT).show();
 
                    arrayList.add(cName);
+                   emptyText.setVisibility(View.GONE);
+
                    adapter.notifyDataSetChanged();
                    Log.w(TAG, cName);
                 }
@@ -82,4 +96,5 @@ public class Phase2InboxScreen extends AppCompatActivity {
 
 
     }
+
 }

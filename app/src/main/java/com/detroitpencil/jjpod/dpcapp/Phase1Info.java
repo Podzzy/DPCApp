@@ -9,7 +9,7 @@ public class Phase1Info {
             state, zip, phone, fax, cell, apName, apPhone, apCell, apOther, apEmail,
             apEmailInvoices, poRequired, taxable, pType, notes, dAddress1, dAddress2,
             dCity, dState, dZip, dPhone, dFax, dCell, pBuyer, pBuyerPhone, pBuyerCell, pBuyerOther,
-            specialNotes, deliveryLocations, wcw, boxProgram, BSN, version, iSetup, deliveryCheckOption;
+            specialNotes, deliveryLocations, wcw, boxProgram, BSN, version, iSetup, deliveryCheckOption, submitDate;
 
     public Phase1Info() {
 
@@ -20,7 +20,7 @@ public class Phase1Info {
                       String apName, String apPhone, String apCell, String apOther, String apEmail, String apEmailInvoices,
                       String poRequired, String taxable, String pType, String notes, String deliveryCheckOption, String dAddress1, String dAddress2, String dCity,
                       String dState, String dZip, String dPhone, String dFax, String dCell, String pBuyer, String pBuyerPhone, String pBuyerCell,
-                      String pBuyerOther, String specialNotes, String deliveryLocations, String wcw, String boxProgram, String BSN, String version, String iSetup) {
+                      String pBuyerOther, String specialNotes, String deliveryLocations, String wcw, String boxProgram, String BSN, String version, String iSetup, String submitDate) {
 
         this.salespersonName = salespersonName;
         this.salesID = salesID;
@@ -64,6 +64,7 @@ public class Phase1Info {
         this.BSN = BSN;
         this.version = version;
         this.iSetup = iSetup;
+        this.submitDate = submitDate;
     }
 
     public String getSalespersonName() {
@@ -400,5 +401,13 @@ public class Phase1Info {
 
     public String getDeliveryCheckOption(){
         return deliveryCheckOption;
+    }
+
+    public String getSubmitDate() {
+        return submitDate;
+    }
+
+    public void setSubmitDate(String submitDate) {
+        this.submitDate = submitDate;
     }
 }

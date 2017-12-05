@@ -41,7 +41,7 @@ public class HomeScreen extends AppCompatActivity {
         orderButton = findViewById(R.id.orderButton);
         logOutButton = findViewById(R.id.logOutbutton);
         createButton = findViewById(R.id.createButton);
-        phaseText = findViewById(R.id.phaseText);
+        //phaseText = findViewById(R.id.phaseText);
 
         inboxButton.setVisibility(View.GONE);
         createButton.setVisibility(View.GONE);
@@ -84,16 +84,8 @@ public class HomeScreen extends AppCompatActivity {
         mRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-             /* phaseText.setText(String.valueOf(getCurrentPhase(dataSnapshot)));
-                currentPhase = phaseText.getText().toString();
-                if(currentPhase.equals("Phase 1")){
-                    createButton.setVisibility(View.VISIBLE);
-                }else{
-                    inboxButton.setVisibility(View.VISIBLE);
-                }*/
              User user = dataSnapshot.child("users").child(userID).getValue(User.class);
              currentPhase = user.getPhase();
-                Toast.makeText(HomeScreen.this, currentPhase, Toast.LENGTH_SHORT).show();
                 if(currentPhase.equals("Phase 1")){
                     createButton.setVisibility(View.VISIBLE);
                 }else {

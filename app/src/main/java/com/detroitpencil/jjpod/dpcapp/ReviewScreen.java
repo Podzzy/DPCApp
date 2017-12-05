@@ -25,12 +25,16 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 public class ReviewScreen extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     String salesName, salesID, company, companyName, address1, address2= "", city, state, zip, phone = "", fax="", cell="",
             apContactName="", apPhone="", apCell="", apOther="", apEmail="", invoices="", poOption, taxable, payment, notes, deliveryCheckOption,
             dAddress1, dAddress2= "", dCity, dState, dZip,dPhone = "", dFax = "", dCell = "", dBuyer ="", dBuyerPhone ="", dBuyerCell ="", dBuyerOther ="", dNotes = "",
-            boxOption = "", bsnOption="", wcw ="", iOption="", bsnVersion = "", location="";
+            boxOption = "", bsnOption="", wcw ="", iOption="", bsnVersion = "", location="", submitDate;
 
     String[] companies, paymentOptions;
 
@@ -46,6 +50,10 @@ public class ReviewScreen extends AppCompatActivity implements AdapterView.OnIte
         setContentView(R.layout.activity_review_screen);
         getSupportActionBar().setTitle("REVIEW YOUR INFORMATION");
 
+        Calendar c = Calendar.getInstance();
+        SimpleDateFormat dformat = new SimpleDateFormat("MM/dd/yyyy");
+        submitDate = dformat.format(c.getTime());
+
         mAuth = FirebaseAuth.getInstance();
         fd = FirebaseDatabase.getInstance();
         myRef = fd.getReference();
@@ -55,7 +63,10 @@ public class ReviewScreen extends AppCompatActivity implements AdapterView.OnIte
             @Override
             public void onClick(View view) {
                 updateDB();
-                Toast.makeText(ReviewScreen.this, "DB Updated", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ReviewScreen.this, "New account information submitted.", Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(ReviewScreen.this, HomeScreen.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(i);
             }
         });
 
@@ -210,21 +221,6 @@ public class ReviewScreen extends AppCompatActivity implements AdapterView.OnIte
             dBuyerOther = apOther;
             dNotes = notes;
 
-
-           /* finaldAddress1Text.setText(address1);
-            finalDAddress2Text.setText(address2);
-            finalDCityText.setText(city);
-            finalDStateText.setText(state);
-            finalDZipText.setText(zip);
-            finalDPhoneText.setText(phone);
-            //finalDFaxText.setText(dFax);
-            finalDCellText.setText(cell);
-            finalBuyerText.setText(apContactName);
-            finalBuyerPhoneText.setText(apPhone);
-            finalBuyerCellText.setText(apCell);
-            // finalBuyerOtherText.setText(dBuyerOther);
-            finalDNotesText.setText(notes);
-            */
         }
 
         //Make sure spinners show correct data
@@ -286,8 +282,10 @@ public class ReviewScreen extends AppCompatActivity implements AdapterView.OnIte
         Phase1Info phase1Info = new Phase1Info(salesName, salesID, company, companyName, address1, address2,
                 city, state, zip, phone, fax, cell, apContactName, apPhone, apCell, apOther, apEmail, invoices,
                 poOption, taxable, payment, notes, deliveryCheckOption, dAddress1, dAddress2, dCity, dState, dZip, dPhone, dFax, dCell,
-                dBuyer, dBuyerPhone, dBuyerCell, dBuyerOther, dNotes, location, wcw, boxOption, bsnOption, bsnVersion, iOption);
+                dBuyer, dBuyerPhone, dBuyerCell, dBuyerOther, dNotes, location, wcw, boxOption, bsnOption, bsnVersion, iOption, submitDate);
 
         myRef.child("phase2inbox").child(companyName).setValue(phase1Info);
+
+
     }
 }

@@ -87,20 +87,17 @@ public class ReviewP1InfoScreen extends AppCompatActivity implements AdapterView
         Intent j = getIntent();
         inboxCompany = j.getStringExtra("inboxCompany");
 
-        fromRef = FirebaseDatabase.getInstance().getReferenceFromUrl("https://dpcapp-jjpod.firebaseio.com/phase2inbox/");
-        toRef = FirebaseDatabase.getInstance().getReferenceFromUrl("https://dpcapp-jjpod.firebaseio.com/phase3inbox/");
 
         nextScreenButton = findViewById(R.id.nextScreeButton);
         nextScreenButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                moveFirebaseRecord(fromRef, toRef, inboxCompany);
-                //fromRef.child(inboxCompany).removeValue();
 
                 Intent i = new Intent(ReviewP1InfoScreen.this, PricingProfilesScreen1.class);
                 i.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                 i.putExtra("inboxCompany", inboxCompany);
                 startActivity(i);
+
             }
         });
 
@@ -159,6 +156,10 @@ public class ReviewP1InfoScreen extends AppCompatActivity implements AdapterView
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 phase1Info = dataSnapshot.child(inboxCompany).getValue(Phase1Info.class);
+                if(phase1Info== null){
+                    //Toast.makeText(ReviewP1InfoScreen.this, "Phase1Info is null.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 decompInfo(phase1Info);
                 updateUI();
                 Log.w(TAG,phase1Info.getSalespersonName());
@@ -187,6 +188,12 @@ public class ReviewP1InfoScreen extends AppCompatActivity implements AdapterView
     }
 
     public void decompInfo(Phase1Info phase1Info){
+        if(phase1Info == null){
+            //Toast.makeText(this, "Phase1Info is null", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+
         salesName = phase1Info.getSalespersonName();
         salesID = phase1Info.getSalesID();
         company = phase1Info.getsCompany();
@@ -321,37 +328,7 @@ public class ReviewP1InfoScreen extends AppCompatActivity implements AdapterView
 
     }
 
-    public void moveFirebaseRecord(final DatabaseReference fromPath, final DatabaseReference toPath, final String key)
-    {
-        fromPath.child(key).addListenerForSingleValueEvent(new ValueEventListener()
-        {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot)
-            {
-                toPath.child(dataSnapshot.getKey()).setValue(dataSnapshot.getValue(), new DatabaseReference.CompletionListener()
-                {
-                    @Override
-                    public void onComplete(DatabaseError firebaseError, DatabaseReference firebase)
-                    {
-                        if (firebaseError != null)
-                        {
-                            Log.w(TAG, "onComplete: SUCCESS");
-                        }
-                        else
-                        {
-                            Log.w(TAG, "onComplete: SUCCESS");
-                        }
-                    }
-                });
-            }
 
-            @Override
-            public void onCancelled(DatabaseError firebaseError)
-            {
-                System.out.println("Copy failed");
-            }
-        });
-    }
 
 
 }
