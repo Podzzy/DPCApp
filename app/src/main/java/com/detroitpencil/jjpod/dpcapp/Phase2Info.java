@@ -14,8 +14,8 @@ public class Phase2Info {
 
     }
 
-    public Phase2Info(Phase1Info phase1Info, String costPluss, String customPricee, String pricingNotess){
-        this.p1info = phase1Info;
+    public Phase2Info(String costPluss, String customPricee, String pricingNotess){
+        //this.p1info = phase1Info;
         this.costPlus = costPluss;
         this.customPrice = customPricee;
         this.pricingNotes = pricingNotess;

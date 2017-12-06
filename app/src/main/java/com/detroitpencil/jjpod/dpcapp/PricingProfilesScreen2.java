@@ -63,6 +63,7 @@ public class PricingProfilesScreen2 extends AppCompatActivity {
 
 
                 Intent i = new Intent(PricingProfilesScreen2.this, HomeScreen.class);
+                Toast.makeText(PricingProfilesScreen2.this, "Phase 2 info submitted successfully.", Toast.LENGTH_SHORT).show();
                 i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
 
@@ -104,7 +105,7 @@ public class PricingProfilesScreen2 extends AppCompatActivity {
                         }
                         else
                         {
-                            Log.w(TAG, "onComplete: SUCCESS");
+                            Log.w(TAG, "onComplete: ERROR");
                         }
                     }
                 });

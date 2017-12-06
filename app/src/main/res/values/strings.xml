@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">DPCApp</string>
+    <string name="detroit_pencil_company">Detroit Pencil Company</string>
+    <string name="date">date</string>
+    <string name="inbox_empty">Inbox empty</string>
+    <string name="date_submitted">Date submitted</string>
+    <string name="company">Company</string>
 </resources>

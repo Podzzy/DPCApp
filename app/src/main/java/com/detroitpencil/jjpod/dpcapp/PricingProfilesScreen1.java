@@ -69,6 +69,12 @@ public class PricingProfilesScreen1 extends AppCompatActivity implements Adapter
         nextScreenButton2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                if(USAExpress == null){
+                    Toast.makeText(PricingProfilesScreen1.this, "Must choose a USA/Express option.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(view.getContext());
                 SharedPreferences.Editor editor = prefs.edit();
                 editor.putString("paperBrand", paperBrand);
@@ -76,7 +82,7 @@ public class PricingProfilesScreen1 extends AppCompatActivity implements Adapter
                 editor.putString("matrix", matrix);
                 editor.putString("USAExpress", USAExpress);
                 editor.putString("inboxCompany", inboxCompany);
-                editor.commit();
+                editor.apply();
 
                 Log.w(TAG, "Paper: "+paperBrand);
                 Log.w(TAG, "Toner: "+tonerBrand);

@@ -25,8 +25,9 @@ import java.util.ArrayList;
 public class Phase2InboxScreen extends AppCompatActivity {
 
     ListView listView;
-    ArrayAdapter<String> adapter;
-    ArrayList<String> arrayList;
+    //ArrayAdapter<String> adapter;
+    //ArrayList<String> arrayList;
+    InboxAdapter iAdapter ;
 
     FirebaseAuth mAuth;
     FirebaseDatabase mfirebaseDatabase;
@@ -50,28 +51,36 @@ public class Phase2InboxScreen extends AppCompatActivity {
         mRef = mfirebaseDatabase.getReference();
 
         listView = findViewById(R.id.listView);
-        arrayList = new ArrayList<String>();
+        //arrayList = new ArrayList<String>();
 
-        if(arrayList.isEmpty())
+        //if(arrayList.isEmpty())
+          //  emptyText.setVisibility(View.VISIBLE);
+
+
+        iAdapter = new InboxAdapter();
+       // adapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, arrayList);
+        if(iAdapter.isEmpty())
             emptyText.setVisibility(View.VISIBLE);
-
-
-
-        adapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, arrayList);
-        listView.setAdapter(adapter);
 
         mRef.child("phase2inbox").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                for(DataSnapshot ds : dataSnapshot.getChildren()){
-                   String cName =  ds.getKey();
-                   String date = (String) ds.child(cName).child("submitDate").getValue();
-                   Toast.makeText(Phase2InboxScreen.this, date, Toast.LENGTH_SHORT).show();
 
-                   arrayList.add(cName);
+                for(DataSnapshot ds : dataSnapshot.getChildren()){
+                    String cName =  ds.getKey();
+                    Phase1Info phase1Info;
+                    phase1Info = ds.getValue(Phase1Info.class);
+                    String date = null;
+                    if (phase1Info != null) {
+                        date = phase1Info.getSubmitDate();
+                    }
+                    Log.w(TAG, "SUBMIT DATE:"+date);
+
+                   iAdapter.addInboxItem(cName, date);
                    emptyText.setVisibility(View.GONE);
 
-                   adapter.notifyDataSetChanged();
+                   listView.setAdapter(iAdapter);
+                   //iAdapter.notifyDataSetChanged();
                    Log.w(TAG, cName);
                 }
 
@@ -86,7 +95,9 @@ public class Phase2InboxScreen extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                String companyName = listView.getItemAtPosition(i).toString();
+                InboxItem inbox = (InboxItem) iAdapter.getItem(i);
+                String companyName = inbox.getCompanyName();
+                listView.setAdapter(iAdapter);
                 Intent intent = new Intent(Phase2InboxScreen.this, ReviewP1InfoScreen.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                 intent.putExtra("inboxCompany", companyName);

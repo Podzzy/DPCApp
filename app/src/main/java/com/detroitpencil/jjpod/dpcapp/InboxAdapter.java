@@ -15,7 +15,7 @@ import java.util.ArrayList;
 
 public class InboxAdapter extends BaseAdapter {
 
-    ArrayList<InboxItem> inbox = new ArrayList<>();
+    ArrayList<InboxItem> inbox = new ArrayList<InboxItem>();
 
     void addInboxItem(String companyName, String date){
         InboxItem inboxItem = new InboxItem(companyName, date);
@@ -39,12 +39,11 @@ public class InboxAdapter extends BaseAdapter {
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
-        final int currentPosition = i;
 
         if(view == null){
             LayoutInflater inflater = LayoutInflater.from(viewGroup.getContext());
             final RelativeLayout layout = (RelativeLayout)inflater.inflate(R.layout.inbox_item, null, false);
-            TextView company = layout.findViewById(R.id.cName);
+            TextView company = layout.findViewById(R.id.coName);
             TextView date = layout.findViewById(R.id.date);
 
             company.setText(inbox.get(i).getCompanyName());
