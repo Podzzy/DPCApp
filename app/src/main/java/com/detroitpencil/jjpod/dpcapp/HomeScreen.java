@@ -55,7 +55,7 @@ public class HomeScreen extends AppCompatActivity {
         createButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(view.getContext(), CreateScreen2.class); //MAKE SURE TO CHANGE THIS BACK!!!!******************************************
+                Intent i = new Intent(view.getContext(), CreateScreen1.class); //MAKE SURE TO CHANGE THIS BACK!!!!******************************************
                 i.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                 startActivity(i);
 
@@ -65,7 +65,10 @@ public class HomeScreen extends AppCompatActivity {
         inboxButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(HomeScreen.this, Phase2InboxScreen.class));
+                if(currentPhase.equals("Phase 2"))
+                    startActivity(new Intent(HomeScreen.this, Phase2InboxScreen.class));
+                if(currentPhase.equals("Phase 3"))
+                    startActivity(new Intent(HomeScreen.this, Phase3InboxScreen.class));
             }
         });
 

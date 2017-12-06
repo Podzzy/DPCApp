@@ -8,17 +8,21 @@ package com.detroitpencil.jjpod.dpcapp;
 public class Phase2Info {
 
     public String costPlus, customPrice, pricingNotes;
-    public Phase1Info p1info;
+    public Phase1Info phase1Info;
 
     public Phase2Info(){
 
     }
 
-    public Phase2Info(String costPluss, String customPricee, String pricingNotess){
-        //this.p1info = phase1Info;
+    public Phase2Info(Phase1Info phase1Info, String costPluss, String customPricee, String pricingNotess){
+        this.phase1Info = phase1Info;
         this.costPlus = costPluss;
         this.customPrice = customPricee;
         this.pricingNotes = pricingNotess;
+    }
+
+    public String getSubmit2Date(){
+        return phase1Info.getSubmitDate();
     }
 
 
@@ -44,5 +48,13 @@ public class Phase2Info {
 
     public void setPricingNotes(String pricingNotes) {
         this.pricingNotes = pricingNotes;
+    }
+
+    public Phase1Info getP1info() {
+        return phase1Info;
+    }
+
+    public void setPhase1Info(Phase1Info p1info) {
+        this.phase1Info = p1info;
     }
 }

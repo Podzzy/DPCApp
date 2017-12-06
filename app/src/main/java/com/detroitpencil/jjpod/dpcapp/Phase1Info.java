@@ -9,7 +9,8 @@ public class Phase1Info {
             state, zip, phone, fax, cell, apName, apPhone, apCell, apOther, apEmail,
             apEmailInvoices, poRequired, taxable, pType, notes, dAddress1, dAddress2,
             dCity, dState, dZip, dPhone, dFax, dCell, pBuyer, pBuyerPhone, pBuyerCell, pBuyerOther,
-            specialNotes, deliveryLocations, wcw, boxProgram, BSN, version, iSetup, deliveryCheckOption, submitDate;
+            specialNotes, deliveryLocations, wcw, boxProgram, BSN, version, iSetup, deliveryCheckOption, submitDate,
+             paperBrand, tonerBrand, matrix, usaExpress, costPlus, customPrice, pricingNotes ;
 
     public Phase1Info() {
 
@@ -20,7 +21,8 @@ public class Phase1Info {
                       String apName, String apPhone, String apCell, String apOther, String apEmail, String apEmailInvoices,
                       String poRequired, String taxable, String pType, String notes, String deliveryCheckOption, String dAddress1, String dAddress2, String dCity,
                       String dState, String dZip, String dPhone, String dFax, String dCell, String pBuyer, String pBuyerPhone, String pBuyerCell,
-                      String pBuyerOther, String specialNotes, String deliveryLocations, String wcw, String boxProgram, String BSN, String version, String iSetup, String submitDate) {
+                      String pBuyerOther, String specialNotes, String deliveryLocations, String wcw, String boxProgram, String BSN, String version, String iSetup, String submitDate,
+                      String paperBrand, String tonerBrand, String matrix, String usaExpress, String costPlus, String customPrice, String pricingNotes) {
 
         this.salespersonName = salespersonName;
         this.salesID = salesID;
@@ -65,6 +67,13 @@ public class Phase1Info {
         this.version = version;
         this.iSetup = iSetup;
         this.submitDate = submitDate;
+        this.paperBrand = paperBrand;
+        this.tonerBrand = tonerBrand;
+        this.matrix = matrix;
+        this.usaExpress = usaExpress;
+        this.costPlus = costPlus;
+        this.customPrice = customPrice;
+        this.pricingNotes = pricingNotes;
     }
 
     public String getSalespersonName() {
@@ -409,5 +418,61 @@ public class Phase1Info {
 
     public void setSubmitDate(String submitDate) {
         this.submitDate = submitDate;
+    }
+
+    public String getPaperBrand() {
+        return paperBrand;
+    }
+
+    public void setPaperBrand(String paperBrand) {
+        this.paperBrand = paperBrand;
+    }
+
+    public String getTonerBrand() {
+        return tonerBrand;
+    }
+
+    public void setTonerBrand(String tonerBrand) {
+        this.tonerBrand = tonerBrand;
+    }
+
+    public String getMatrix() {
+        return matrix;
+    }
+
+    public void setMatrix(String matrix) {
+        this.matrix = matrix;
+    }
+
+    public String getUsaExpress() {
+        return usaExpress;
+    }
+
+    public void setUsaExpress(String usaExpress) {
+        this.usaExpress = usaExpress;
+    }
+
+    public String getCostPlus() {
+        return costPlus;
+    }
+
+    public void setCostPlus(String costPlus) {
+        this.costPlus = costPlus;
+    }
+
+    public String getCustomPrice() {
+        return customPrice;
+    }
+
+    public void setCustomPrice(String customPrice) {
+        this.customPrice = customPrice;
+    }
+
+    public String getPricingNotes() {
+        return pricingNotes;
+    }
+
+    public void setPricingNotes(String pricingNotes) {
+        this.pricingNotes = pricingNotes;
     }
 }

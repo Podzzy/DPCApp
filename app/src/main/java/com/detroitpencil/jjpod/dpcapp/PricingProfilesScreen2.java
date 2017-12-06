@@ -18,12 +18,14 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
 public class PricingProfilesScreen2 extends AppCompatActivity {
 
-    String costPlus, customPrice, pricingNotes, paperBrand, tonerBrand, matrix, USAExpress, inboxCompany;
+    String costPlus, customPrice, pricingNotes, paperBrand, tonerBrand, matrix, USAExpress, inboxCompany, submitDate;
     final String TAG = PricingProfilesScreen2.class.getSimpleName();
 
     EditText costPlusText, customPriceText, pricingNotesText;
@@ -67,13 +69,19 @@ public class PricingProfilesScreen2 extends AppCompatActivity {
                 i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
 
+                Calendar c = Calendar.getInstance();
+                SimpleDateFormat dformat = new SimpleDateFormat("MM/dd/yyyy");
+                submitDate = dformat.format(c.getTime());
+
                 //Add all new info to existing phase 1 info before moving its location
+                fromRef.child(inboxCompany).child("submitDate").setValue(submitDate);
                 fromRef.child(inboxCompany).child("costPlus").setValue(costPlus);
                 fromRef.child(inboxCompany).child("customPrice").setValue(customPrice);
                 fromRef.child(inboxCompany).child("pricingNotes").setValue(pricingNotes);
                 fromRef.child(inboxCompany).child("paperBrand").setValue(paperBrand);
+                fromRef.child(inboxCompany).child("tonerBrand").setValue(tonerBrand);
                 fromRef.child(inboxCompany).child("matrix").setValue(matrix);
-                fromRef.child(inboxCompany).child("USAExpress").setValue(USAExpress);
+                fromRef.child(inboxCompany).child("usaExpress").setValue(USAExpress);
                 moveFirebaseRecord(fromRef, toRef, inboxCompany);
 
 

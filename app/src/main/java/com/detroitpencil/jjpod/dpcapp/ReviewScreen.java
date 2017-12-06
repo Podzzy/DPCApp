@@ -282,7 +282,8 @@ public class ReviewScreen extends AppCompatActivity implements AdapterView.OnIte
         Phase1Info phase1Info = new Phase1Info(salesName, salesID, company, companyName, address1, address2,
                 city, state, zip, phone, fax, cell, apContactName, apPhone, apCell, apOther, apEmail, invoices,
                 poOption, taxable, payment, notes, deliveryCheckOption, dAddress1, dAddress2, dCity, dState, dZip, dPhone, dFax, dCell,
-                dBuyer, dBuyerPhone, dBuyerCell, dBuyerOther, dNotes, location, wcw, boxOption, bsnOption, bsnVersion, iOption, submitDate);
+                dBuyer, dBuyerPhone, dBuyerCell, dBuyerOther, dNotes, location, wcw, boxOption, bsnOption, bsnVersion, iOption, submitDate,
+                "", "", "", "", "", "", "");
 
         myRef.child("phase2inbox").child(companyName).setValue(phase1Info);
 
