@@ -45,6 +45,7 @@ public class Phase2InboxScreen extends AppCompatActivity {
         getSupportActionBar().setTitle("INBOX");
 
         emptyText = findViewById(R.id.emptyText);
+        emptyText.setVisibility(View.GONE);
 
         mAuth = FirebaseAuth.getInstance();
         mfirebaseDatabase= FirebaseDatabase.getInstance();

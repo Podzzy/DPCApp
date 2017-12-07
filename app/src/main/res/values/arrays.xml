@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="companies">
+        <item>Detroit Pencil Company</item>
+        <item>Supply Geeks</item>
+        <item>FRIS</item>
+    </string-array>
+    <string-array name="payment_type">
+        <item>Net 30</item>
+        <item>Credit Card</item>
+        <item>ACH</item>
+    </string-array>
+    <string-array name="paper_brand">
+        <item>P8</item>
+        <item>P10</item>
+        <item>P14</item>
+        <item>P17</item>
+        <item>P20</item>
+    </string-array>
+    <string-array name="toner_band">
+        <item>20A-5</item>
+        <item>20A-10</item>
+        <item>20A+5</item>
+        <item>20A7GP</item>
+    </string-array>
+    <string-array name="matrix_items">
+        <item>2015</item>
+        <item>2016</item>
+        <item>20A</item>
+        <item>20C</item>
+        <item>50A</item>
+        <item>38S</item>
+    </string-array>
+    <string-array name="phases">
+        <item>Phase 1</item>
+        <item>Phase 2</item>
+        <item>Phase 3</item>
+    </string-array>
+</resources>

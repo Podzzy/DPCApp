@@ -8,7 +8,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context="com.detroitpencil.jjpod.dpcapp.CreateScreen5"
     android:focusable="true"
     android:focusableInTouchMode="true"
@@ -19,18 +19,12 @@
         android:id="@+id/textView28"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="P.O. Required:"
-        android:textColor="@android:color/black"
+        android:text="@string/p_o_required"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.015" />
+        />
 
     <RadioGroup
         android:id="@+id/radioGroup2"
@@ -40,12 +34,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.066">
+        android:orientation="horizontal">
 
         <RadioButton
             android:id="@+id/poYes"
@@ -54,7 +43,8 @@
             android:layout_marginEnd="10dp"
             android:layout_marginRight="10dp"
             android:onClick="onRadioButtonClickedPO"
-            android:text="YES" />
+            android:text="@string/yes"
+            android:textColor="@android:color/white" />
 
         <RadioButton
             android:id="@+id/poNo"
@@ -62,7 +52,8 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:onClick="onRadioButtonClickedPO"
-            android:text="NO" />
+            android:text="@string/no"
+            android:textColor="@android:color/white" android:layout_marginStart="10dp" />
 
     </RadioGroup>
 
@@ -70,19 +61,12 @@
         android:id="@+id/textView29"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="Taxable:"
-        android:textColor="@android:color/black"
+        android:text="@string/taxable"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.211" />
+       />
 
     <RadioGroup
         android:id="@+id/radioGroup"
@@ -93,11 +77,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.265">
+     >
 
         <RadioButton
             android:id="@+id/tYes"
@@ -106,7 +86,8 @@
             android:layout_marginEnd="10dp"
             android:layout_marginRight="10dp"
             android:onClick="onRadioButtonClickedTax"
-            android:text="YES" />
+            android:text="@string/yes"
+            android:textColor="@android:color/white" />
 
         <RadioButton
             android:id="@+id/tNo"
@@ -114,60 +95,44 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:onClick="onRadioButtonClickedTax"
-            android:text="NO" />
+            android:text="@string/no"
+            android:textColor="@android:color/white" android:layout_marginStart="10dp" />
 
     </RadioGroup>
+
     <TextView
         android:id="@+id/textView30"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="Payment Type:"
-        android:textColor="@android:color/black"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.401" />
+        android:text="@string/payment_type"
+        android:textSize="18sp" />
     <Spinner
         android:id="@+id/paymentSpinner"
+        android:entries="@array/payment_type"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:background="@android:drawable/btn_dropdown"
-        android:minWidth="225dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.474" />
+        android:background="@drawable/spinner_bg"
+        android:minWidth="285dp" />
 
 
     <TextView
         android:id="@+id/textView31"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="Notes:"
-        android:textColor="@android:color/black"
+        android:text="@string/notes"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.25"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.625" />
+   />
 
     <EditText
         android:id="@+id/notesText"
@@ -178,13 +143,10 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:ems="10"
-        android:hint="Input any additional notes."
+        android:hint="@string/input_any_additional_notes"
         android:inputType="textMultiLine"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.752" />
+        android:textSize="24sp"
+       />
 
     <Button
         android:id="@+id/nextButton4"
@@ -193,13 +155,8 @@
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="NEXT"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.948" />
+        android:layout_marginTop="24dp"
+        android:text="@string/next" />
 
 </LinearLayout>
 </ScrollView>

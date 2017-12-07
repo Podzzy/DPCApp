@@ -41,7 +41,6 @@
     <string name="other">Other:</string>
     <string name="input_additional_contact">Input additional contact</string>
     <string name="input_email">Input email</string>
-    <string name="input_data">Input data</string>
     <string name="email">Email:</string>
     <string name="email_invoices">Email Invoices:</string>
     <string name="p_o_required">P.O. Required:</string>
@@ -115,6 +114,6 @@
     <string name="version_year_caps">Version/Year:</string>
     <string name="version">Version</string>
     <string name="company_goes_here">Company goes here</string>
+    <string name="input_data">Input data</string>
     <string name="select_phase">Select Phase:</string>
-
 </resources>

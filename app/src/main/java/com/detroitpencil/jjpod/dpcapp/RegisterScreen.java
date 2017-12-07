@@ -61,10 +61,10 @@ public class RegisterScreen extends AppCompatActivity implements AdapterView.OnI
 
         spinner = findViewById(R.id.spinner);
         spinner.setOnItemSelectedListener(this);
-        phases = new String[]{"Phase 1", "Phase 2", "Phase 3"};
+        /*phases = new String[]{"Phase 1", "Phase 2", "Phase 3"};
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, phases);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
+        spinner.setAdapter(adapter);*/
 
         editTextEmail = findViewById(R.id.editTextEmail);
         editTextPassword = findViewById(R.id.editTextPassword);

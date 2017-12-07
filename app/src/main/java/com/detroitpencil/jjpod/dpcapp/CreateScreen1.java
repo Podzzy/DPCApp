@@ -34,10 +34,10 @@ public class CreateScreen1 extends AppCompatActivity implements AdapterView.OnIt
 
         companySpinner = findViewById(R.id.companySpinner);
         companySpinner.setOnItemSelectedListener(this);
-        companies = new  String[]{"Detroit Pencil Company", "Supply Geeks", "FRIS"};
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, companies);
+        /*companies = new  String[]{"Detroit Pencil Company", "Supply Geeks", "FRIS"};
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item , companies);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        companySpinner.setAdapter(adapter);
+        companySpinner.setAdapter(adapter);*/
 
         nextPageButton = findViewById(R.id.nextPageButton);
         nextPageButton.setOnClickListener(new View.OnClickListener() {

@@ -44,22 +44,22 @@ public class PricingProfilesScreen1 extends AppCompatActivity implements Adapter
         matrixSpinner = findViewById(R.id.matrixSpinner);
 
         paperSpinner.setOnItemSelectedListener(this);
-        paperBrands = new  String[]{"P8", "P10", "P14", "P17", "P20"};
+        /*paperBrands = new  String[]{"P8", "P10", "P14", "P17", "P20"};
         ArrayAdapter<String> paperAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, paperBrands);
         paperAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        paperSpinner.setAdapter(paperAdapter);
+        paperSpinner.setAdapter(paperAdapter);*/
 
         tonerSpinner.setOnItemSelectedListener(this);
-        tonerBrands = new  String[]{"20A-5", "20A-10", "20A+5", "20A7GP"};
+       /* tonerBrands = new  String[]{"20A-5", "20A-10", "20A+5", "20A7GP"};
         ArrayAdapter<String> tonerAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, tonerBrands);
         paperAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        tonerSpinner.setAdapter(tonerAdapter);
+        tonerSpinner.setAdapter(tonerAdapter);*/
 
         matrixSpinner.setOnItemSelectedListener(this);
-        matrixItems = new  String[]{"2015", "2016", "20A", "20C", "50A", "38S"};
+        /*matrixItems = new  String[]{"2015", "2016", "20A", "20C", "50A", "38S"};
         ArrayAdapter<String>matrixAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, matrixItems);
         matrixAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        matrixSpinner.setAdapter(matrixAdapter);
+        matrixSpinner.setAdapter(matrixAdapter);*/
 
         USAExpressYes = findViewById(R.id.USAExpressYes);
         USAExpressNo = findViewById(R.id.USAExpressNO);

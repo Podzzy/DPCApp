@@ -9,7 +9,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         tools:context="com.detroitpencil.jjpod.dpcapp.AdditionalInfoScreen"
         android:focusable="true"
         android:focusableInTouchMode="true"
@@ -23,30 +23,23 @@
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:text="Delivery locations outside/zone/US:"
-            android:textColor="@android:color/black"
+            android:text="@string/delivery_locations_outside_zone_us"
             android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.016" />
+             />
 
         <EditText
             android:id="@+id/locationText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
+            android:layout_marginTop="8dp"
             android:layout_marginStart="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/edit_text_bg"
             android:ems="10"
-            android:hint="Input text"
+            android:hint="@string/input_text"
             android:inputType="textPersonName"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.503"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.066" />
+            android:textSize="24sp" />
 
         <TextView
             android:id="@+id/textView35"
@@ -55,15 +48,10 @@
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:text="WCW/Employees"
-            android:textColor="@android:color/black"
+            android:layout_marginBottom="8dp"
+            android:text="@string/wcw_employees"
             android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.336"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.182" />
+            />
 
         <EditText
             android:id="@+id/wcwText"
@@ -72,14 +60,11 @@
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:ems="10"
-            android:hint="Input text."
+            android:hint="@string/input_text"
             android:inputType="textPersonName"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.503"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.247" />
+            android:textSize="24sp"
+            android:layout_marginBottom="8dp"
+          />
 
         <TextView
             android:id="@+id/textView28"
@@ -88,15 +73,8 @@
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:text="Box Program:"
-            android:textColor="@android:color/black"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.501"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.38" />
+            android:text="@string/box_program"
+            android:textSize="18sp" />
 
         <RadioGroup
             android:id="@+id/boxRadioGroup"
@@ -106,13 +84,7 @@
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
 
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.502"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.451">
+            android:orientation="horizontal">
 
             <RadioButton
                 android:id="@+id/boxYes"
@@ -121,7 +93,8 @@
                 android:layout_marginEnd="10dp"
                 android:layout_marginRight="10dp"
                 android:onClick="onRadioButtonClickedBox"
-                android:text="YES" />
+                android:text="@string/yes"
+                android:textColor="@android:color/white" />
 
             <RadioButton
                 android:id="@+id/boxNo"
@@ -129,7 +102,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:onClick="onRadioButtonClickedBox"
-                android:text="NO" />
+                android:text="@string/no"
+                android:textColor="@android:color/white" android:layout_marginStart="10dp" />
 
         </RadioGroup>
 
@@ -140,15 +114,9 @@
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:text="BSN Given:"
-            android:textColor="@android:color/black"
+            android:text="@string/bsn_given"
             android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.501"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.553" />
+   />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -162,27 +130,23 @@
                 android:layout_marginBottom="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
-                android:orientation="horizontal"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.25"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.624">
+                android:orientation="horizontal">
 
                 <RadioButton
                     android:id="@+id/bsnYes"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:onClick="onRadioButtonClickedBSN"
-                    android:text="YES" />
+                    android:text="@string/yes"
+                    android:textColor="@android:color/white" />
 
                 <RadioButton
                     android:id="@+id/bsnNo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:onClick="onRadioButtonClickedBSN"
-                    android:text="NO" />
+                    android:text="@string/no"
+                    android:textColor="@android:color/white" />
 
             </RadioGroup>
 
@@ -194,15 +158,9 @@
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
                 android:ems="10"
-                android:hint="Version/Year"
+                android:hint="@string/version_year"
                 android:inputType="textPersonName"
-                android:textSize="14sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.694"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.626" />
+                android:textSize="18sp" />
         </LinearLayout>
 
         <TextView
@@ -212,15 +170,8 @@
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:text="Internet Set Up:"
-            android:textColor="@android:color/black"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.502"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.714" />
+            android:text="@string/internet_set_up"
+            android:textSize="18sp" />
 
         <RadioGroup
             android:id="@+id/radioGroup3"
@@ -229,27 +180,23 @@
             android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.502"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.779">
+            android:orientation="horizontal">
 
             <RadioButton
                 android:id="@+id/iMaster"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:onClick="onRadioButtonClickedInternet"
-                android:text="Master User" />
+                android:text="@string/master_user"
+                android:textColor="@android:color/white" />
 
             <RadioButton
                 android:id="@+id/iApproval"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:onClick="onRadioButtonClickedInternet"
-                android:text="Approval Routing" />
+                android:text="@string/approval_routing"
+                android:textColor="@android:color/white" />
 
         </RadioGroup>
 
@@ -260,13 +207,9 @@
             android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="32dp"
-            android:text="NEXT"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.948" />
+            android:layout_marginTop="24dp"
+            android:background="@drawable/layer_list"
+            android:text="@string/next" />
 
     </LinearLayout>
 </ScrollView>

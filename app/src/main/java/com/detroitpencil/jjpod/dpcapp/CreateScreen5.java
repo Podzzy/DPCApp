@@ -32,10 +32,10 @@ public class CreateScreen5 extends AppCompatActivity implements AdapterView.OnIt
 
         paymentSpinner = findViewById(R.id.paymentSpinner);
         paymentSpinner.setOnItemSelectedListener(this);
-        paymentOptions = new  String[]{"Net 30", "Credit Card", "ACH"};
+        /*paymentOptions = new  String[]{"Net 30", "Credit Card", "ACH"};
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, paymentOptions);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        paymentSpinner.setAdapter(adapter);
+        paymentSpinner.setAdapter(adapter);*/
 
         notesText = findViewById(R.id.notesText);
 
