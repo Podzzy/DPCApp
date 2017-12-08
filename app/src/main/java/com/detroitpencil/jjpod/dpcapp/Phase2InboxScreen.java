@@ -58,7 +58,7 @@ public class Phase2InboxScreen extends AppCompatActivity {
           //  emptyText.setVisibility(View.VISIBLE);
 
 
-        iAdapter = new InboxAdapter();
+        iAdapter = new InboxAdapter("normal");
        // adapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, arrayList);
         if(iAdapter.isEmpty())
             emptyText.setVisibility(View.VISIBLE);

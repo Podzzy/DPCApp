@@ -2,6 +2,7 @@ package com.detroitpencil.jjpod.dpcapp;
 
 import android.content.Intent;
 import android.icu.text.Collator;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -20,7 +21,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class HomeScreen extends AppCompatActivity {
 
-    Button inboxButton, orderButton, accountButton, logOutButton, createButton;
+    Button inboxButton, statusButton, accountButton, logOutButton, createButton;
     FirebaseAuth mAuth;
     FirebaseDatabase mfirebaseDatabase;
     DatabaseReference mRef;
@@ -38,7 +39,7 @@ public class HomeScreen extends AppCompatActivity {
 
         inboxButton = findViewById(R.id.inboxButton);
         accountButton = findViewById(R.id.accountButton);
-        orderButton = findViewById(R.id.orderButton);
+        statusButton = findViewById(R.id.orderButton);
         logOutButton = findViewById(R.id.logOutbutton);
         createButton = findViewById(R.id.createButton);
         //phaseText = findViewById(R.id.phaseText);
@@ -72,6 +73,15 @@ public class HomeScreen extends AppCompatActivity {
             }
         });
 
+        statusButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(view.getContext(), StatusScreen.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                startActivity(i);
+
+            }
+        });
 
 
         logOutButton.setOnClickListener(new View.OnClickListener() {

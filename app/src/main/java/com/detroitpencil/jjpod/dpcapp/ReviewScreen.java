@@ -36,6 +36,37 @@ public class ReviewScreen extends AppCompatActivity implements AdapterView.OnIte
             dAddress1, dAddress2= "", dCity, dState, dZip,dPhone = "", dFax = "", dCell = "", dBuyer ="", dBuyerPhone ="", dBuyerCell ="", dBuyerOther ="", dNotes = "",
             boxOption = "", bsnOption="", wcw ="", iOption="", bsnVersion = "", location="", submitDate;
 
+    EditText finalSalespersonText, finalSalesIDText,
+            finalCompanyText, finalAddress1Text,
+            finalAddress2Text, finalCityText,
+            finalStateText , finalZipText ,
+            finalPhoneText , //finalFaxText = findViewById(R.id.finalFaxText),
+            finalCellText, finalAPContactText,
+            finalAPPhoneText, finalAPCellText,
+    /*finalAPOtherText = findViewById(R.id.finalAPOtherText),*/ finalAPEmailText,
+            finalNotesText , finaldAddress1Text,
+            finalDAddress2Text , finalDCityText ,
+            finalDStateText, finalDZipText,
+            finalDPhoneText , //finalDFaxText = findViewById(R.id.finalDFaxText),
+            finalDCellText, finalBuyerText ,
+            finalBuyerPhoneText, finalBuyerCellText ,
+    /*finalBuyerOtherText = findViewById(R.id.finalBuyerOtherText),*/ finalDNotesText  ,
+            finalWCWText , finalBSNVersionText , finalLocationText;
+
+    RadioButton finalEmailyes , finalEmailNo ,
+            finalBillingCheckYes , finalBillingCheckNo ,
+            finalPOYes , finalPONo ,
+            finalTaxYes, finalTaxNo ,
+            finalBoxYes, finalBoxNo,
+            finalBSNYes , finalBSNNo ,
+            finalMasterUser , finalApprovalRouting;
+
+    Spinner finalPaymentSpinner, finalSalesCompanySpinner;
+
+
+
+
+
     String[] companies, paymentOptions;
 
     Button finalSubmitButton;
@@ -70,24 +101,25 @@ public class ReviewScreen extends AppCompatActivity implements AdapterView.OnIte
             }
         });
 
-        EditText finalSalespersonText= findViewById(R.id.finalSalespersonText), finalSalesIDText= findViewById(R.id.finalSalesIDText),
-                finalCompanyText= findViewById(R.id.finalCompanyText), finalAddress1Text= findViewById(R.id.finalAddress1Text),
-                finalAddress2Text= findViewById(R.id.finalAddress2Text), finalCityText= findViewById(R.id.finalCityText),
-                finalStateText = findViewById(R.id.finalStateText), finalZipText = findViewById(R.id.finalZipText),
-                finalPhoneText = findViewById(R.id.finalPhoneText), //finalFaxText = findViewById(R.id.finalFaxText),
-                finalCellText = findViewById(R.id.finalCellText), finalAPContactText = findViewById(R.id.finalAPContactText),
-                finalAPPhoneText = findViewById(R.id.finalAPPhoneText), finalAPCellText = findViewById(R.id.finalAPCellText),
-                /*finalAPOtherText = findViewById(R.id.finalAPOtherText),*/ finalAPEmailText = findViewById(R.id.finalAPEmailText),
-                finalNotesText = findViewById(R.id.finalNotesText), finaldAddress1Text = findViewById(R.id.finalDAddress1Text),
-                finalDAddress2Text = findViewById(R.id.finalDAddress2Text), finalDCityText = findViewById(R.id.finalDCityText),
-                finalDStateText = findViewById(R.id.finalDStateText), finalDZipText = findViewById(R.id.finalDZipText),
-                finalDPhoneText = findViewById(R.id.finalDPhoneText), //finalDFaxText = findViewById(R.id.finalDFaxText),
-                finalDCellText = findViewById(R.id.finalDCellText), finalBuyerText = findViewById(R.id.finalBuyerText),
-                finalBuyerPhoneText = findViewById(R.id.finalBuyerPhoneText), finalBuyerCellText = findViewById(R.id.finalBuyerCellText),
-                /*finalBuyerOtherText = findViewById(R.id.finalBuyerOtherText),*/ finalDNotesText = findViewById(R.id.finalDeliveryNotesText),
-                finalWCWText = findViewById(R.id.finalWCWText), finalBSNVersionText = findViewById(R.id.finalVersionText), finalLocationText = findViewById(R.id.finalLocationsText);
+         finalSalespersonText= findViewById(R.id.finalSalespersonText); finalSalesIDText= findViewById(R.id.finalSalesIDText);
+                finalCompanyText= findViewById(R.id.finalCompanyText); finalAddress1Text= findViewById(R.id.finalAddress1Text);
+                finalAddress2Text= findViewById(R.id.finalAddress2Text);finalCityText= findViewById(R.id.finalCityText);
+                finalStateText = findViewById(R.id.finalStateText); finalZipText = findViewById(R.id.finalZipText);
+                finalPhoneText = findViewById(R.id.finalPhoneText); //finalFaxText = findViewById(R.id.finalFaxText),
+                finalCellText = findViewById(R.id.finalCellText); finalAPContactText = findViewById(R.id.finalAPContactText);
+                finalAPPhoneText = findViewById(R.id.finalAPPhoneText); finalAPCellText = findViewById(R.id.finalAPCellText);
+                /*finalAPOtherText = findViewById(R.id.finalAPOtherText),*/ finalAPEmailText = findViewById(R.id.finalAPEmailText);
+                finalNotesText = findViewById(R.id.finalNotesText); finaldAddress1Text = findViewById(R.id.finalDAddress1Text);
+                finalDAddress2Text = findViewById(R.id.finalDAddress2Text); finalDCityText = findViewById(R.id.finalDCityText);
+                finalDStateText = findViewById(R.id.finalDStateText); finalDZipText = findViewById(R.id.finalDZipText);
+                finalDPhoneText = findViewById(R.id.finalDPhoneText); //finalDFaxText = findViewById(R.id.finalDFaxText),
+                finalDCellText = findViewById(R.id.finalDCellText); finalBuyerText = findViewById(R.id.finalBuyerText);
+                finalBuyerPhoneText = findViewById(R.id.finalBuyerPhoneText); finalBuyerCellText = findViewById(R.id.finalBuyerCellText);
+                /*finalBuyerOtherText = findViewById(R.id.finalBuyerOtherText),*/ finalDNotesText = findViewById(R.id.finalDeliveryNotesText);
+                finalWCWText = findViewById(R.id.finalWCWText); finalBSNVersionText = findViewById(R.id.finalVersionText); finalLocationText = findViewById(R.id.finalLocationsText);
 
-        Spinner finalSalesCompanySpinner = findViewById(R.id.finalSalesCompanySpinner) , finalPaymentSpinner = findViewById(R.id.finalPaymentSpinner);
+        finalSalesCompanySpinner = findViewById(R.id.finalSalesCompanySpinner);
+        finalPaymentSpinner = findViewById(R.id.finalPaymentSpinner);
 
         finalSalesCompanySpinner.setOnItemSelectedListener(this);
         companies = new  String[]{"Detroit Pencil Company", "Supply Geeks", "FRIS"};
@@ -101,13 +133,13 @@ public class ReviewScreen extends AppCompatActivity implements AdapterView.OnIte
         pAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         finalPaymentSpinner.setAdapter(pAdapter);
 
-        RadioButton finalEmailyes = findViewById(R.id.finalEmailYes), finalEmailNo = findViewById(R.id.finalEmailNo),
-                finalBillingCheckYes = findViewById(R.id.billingCheckYes), finalBillingCheckNo = findViewById(R.id.billingCheckNo),
-                finalPOYes = findViewById(R.id.finalPOYes), finalPONo = findViewById(R.id.finalPONo),
-                finalTaxYes = findViewById(R.id.finalTaxYes), finalTaxNo = findViewById(R.id.finalTaxNo),
-                finalBoxYes = findViewById(R.id.finalBoxYes), finalBoxNo = findViewById(R.id.finalBoxNo),
-                finalBSNYes = findViewById(R.id.finalBSNYes), finalBSNNo = findViewById(R.id.finalBSNNo),
-                finalMasterUser = findViewById(R.id.finalMasterUser), finalApprovalRouting = findViewById(R.id.finalApprovalRouting);
+         finalEmailyes = findViewById(R.id.finalEmailYes); finalEmailNo = findViewById(R.id.finalEmailNo);
+                finalBillingCheckYes = findViewById(R.id.billingCheckYes); finalBillingCheckNo = findViewById(R.id.billingCheckNo);
+                finalPOYes = findViewById(R.id.finalPOYes); finalPONo = findViewById(R.id.finalPONo);
+                finalTaxYes = findViewById(R.id.finalTaxYes); finalTaxNo = findViewById(R.id.finalTaxNo);
+                finalBoxYes = findViewById(R.id.finalBoxYes); finalBoxNo = findViewById(R.id.finalBoxNo);
+                finalBSNYes = findViewById(R.id.finalBSNYes); finalBSNNo = findViewById(R.id.finalBSNNo);
+                finalMasterUser = findViewById(R.id.finalMasterUser); finalApprovalRouting = findViewById(R.id.finalApprovalRouting);
 
         TableRow dRow1 = findViewById(R.id.dRow1), dRow2 = findViewById(R.id.dRow2),
                 dRow3 = findViewById(R.id.dRow3), dRow4 = findViewById(R.id.dRow4),
@@ -264,6 +296,7 @@ public class ReviewScreen extends AppCompatActivity implements AdapterView.OnIte
             finalApprovalRouting.setChecked(true);
 
 
+        disableViews();
     }
 
     @Override
@@ -288,5 +321,62 @@ public class ReviewScreen extends AppCompatActivity implements AdapterView.OnIte
         myRef.child("phase2inbox").child(companyName).setValue(phase1Info);
 
 
+    }
+
+    public void disableViews(){
+        finalSalespersonText.setEnabled(false);
+        finalSalesIDText.setEnabled(false);
+        finalCompanyText.setEnabled(false);
+        finalAddress1Text.setEnabled(false);
+        finalAddress2Text.setEnabled(false);
+        finalCityText.setEnabled(false);
+        finalStateText.setEnabled(false);
+        finalZipText.setEnabled(false);
+        finalPhoneText.setEnabled(false);
+        //finalFaxText.setText(fax);
+        finalCellText.setEnabled(false);
+        finalAPContactText.setEnabled(false);
+        finalAPPhoneText.setEnabled(false);
+        finalAPCellText.setEnabled(false);
+        // finalAPOtherText.setText(apOther);
+        finalAPEmailText.setEnabled(false);
+        finalNotesText.setEnabled(false);
+        finaldAddress1Text.setEnabled(false);
+        finalDAddress2Text.setEnabled(false);
+        finalDCityText.setEnabled(false);
+        finalDStateText.setEnabled(false);
+        finalDZipText.setEnabled(false);
+        finalDPhoneText.setEnabled(false);
+        //finalDFaxText.setText(dFax);
+        finalDCellText.setEnabled(false);
+        finalBuyerText.setEnabled(false);
+        finalBuyerPhoneText.setEnabled(false);
+        finalBuyerCellText.setEnabled(false);
+        // finalBuyerOtherText.setText(dBuyerOther);
+        finalDNotesText.setEnabled(false);
+        finalWCWText.setEnabled(false);
+        finalLocationText.setEnabled(false);
+        finalBSNVersionText.setEnabled(false);
+
+
+
+        finalSalesCompanySpinner.setEnabled(false);
+        finalPaymentSpinner.setEnabled(false);
+/*
+        finalEmailyes.setEnabled(false);
+        finalEmailNo.setEnabled(false);
+        finalBillingCheckYes.setEnabled(false);
+        finalBillingCheckNo.setEnabled(false);
+        finalPOYes.setEnabled(false);
+        finalPONo.setEnabled(false);
+        finalTaxYes.setEnabled(false);
+        finalTaxNo.setEnabled(false);
+        finalBoxYes.setEnabled(false);
+        finalBoxNo.setEnabled(false);
+        finalBSNYes.setEnabled(false);
+        finalBSNNo.setEnabled(false);
+        finalMasterUser.setEnabled(false);
+        finalApprovalRouting.setEnabled(false);
+        */
     }
 }

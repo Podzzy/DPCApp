@@ -47,7 +47,7 @@ public class Phase3InboxScreen extends AppCompatActivity {
 
 
 
-        iAdapter = new InboxAdapter();
+        iAdapter = new InboxAdapter("normal");
 
        if(iAdapter.isEmpty())
             emptyText.setVisibility(View.VISIBLE);

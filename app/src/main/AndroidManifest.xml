@@ -34,7 +34,8 @@
         <activity android:name=".PricingProfilesScreen1" />
         <activity android:name=".PricingProfilesScreen2" />
         <activity android:name=".Phase3InboxScreen" />
-        <activity android:name=".ReviewP2InfoScreen"></activity>
+        <activity android:name=".ReviewP2InfoScreen" />
+        <activity android:name=".StatusScreen"></activity>
     </application>
 
 </manifest>

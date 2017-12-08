@@ -29,7 +29,7 @@ public class ReviewP1InfoScreen extends AppCompatActivity implements AdapterView
     String salesName, salesID, company, companyName, address1, address2= "", city, state, zip, phone = "", fax="", cell="",
             apContactName="", apPhone="", apCell="", apOther="", apEmail="", invoices="", poOption, taxable, payment, notes, deliveryCheckOption,
             dAddress1, dAddress2= "", dCity, dState, dZip,dPhone = "", dFax = "", dCell = "", dBuyer ="", dBuyerPhone ="", dBuyerCell ="", dBuyerOther ="", dNotes = "",
-            boxOption = "", bsnOption="", wcw ="", iOption="", bsnVersion = "", location="";
+            boxOption = "", bsnOption="", wcw ="", iOption="", bsnVersion = "", location="", status="";
 
     EditText finalSalespersonText, finalSalesIDText, finalCompanyText, finalAddress1Text,
             finalAddress2Text, finalCityText, finalStateText , finalZipText ,
@@ -86,9 +86,16 @@ public class ReviewP1InfoScreen extends AppCompatActivity implements AdapterView
 
         Intent j = getIntent();
         inboxCompany = j.getStringExtra("inboxCompany");
-
+        status = j.getStringExtra("status");
 
         nextScreenButton = findViewById(R.id.nextScreeButton);
+
+        if(status!=null) {
+            if (status.equals("yes")) {
+                nextScreenButton.setVisibility(View.GONE);
+                getSupportActionBar().setTitle(inboxCompany);
+            }
+        }
         nextScreenButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -326,6 +333,65 @@ public class ReviewP1InfoScreen extends AppCompatActivity implements AdapterView
         else
             finalApprovalRouting.setChecked(true);
 
+        disableViews2();
+
+    }
+
+    public void disableViews2(){
+        finalSalespersonText.setEnabled(false);
+        finalSalesIDText.setEnabled(false);
+        finalCompanyText.setEnabled(false);
+        finalAddress1Text.setEnabled(false);
+        finalAddress2Text.setEnabled(false);
+        finalCityText.setEnabled(false);
+        finalStateText.setEnabled(false);
+        finalZipText.setEnabled(false);
+        finalPhoneText.setEnabled(false);
+        //finalFaxText.setText(fax);
+        finalCellText.setEnabled(false);
+        finalAPContactText.setEnabled(false);
+        finalAPPhoneText.setEnabled(false);
+        finalAPCellText.setEnabled(false);
+        // finalAPOtherText.setText(apOther);
+        finalAPEmailText.setEnabled(false);
+        finalNotesText.setEnabled(false);
+        finaldAddress1Text.setEnabled(false);
+        finalDAddress2Text.setEnabled(false);
+        finalDCityText.setEnabled(false);
+        finalDStateText.setEnabled(false);
+        finalDZipText.setEnabled(false);
+        finalDPhoneText.setEnabled(false);
+        //finalDFaxText.setText(dFax);
+        finalDCellText.setEnabled(false);
+        finalBuyerText.setEnabled(false);
+        finalBuyerPhoneText.setEnabled(false);
+        finalBuyerCellText.setEnabled(false);
+        // finalBuyerOtherText.setText(dBuyerOther);
+        finalDNotesText.setEnabled(false);
+        finalWCWText.setEnabled(false);
+        finalLocationText.setEnabled(false);
+        finalBSNVersionText.setEnabled(false);
+
+
+
+        finalSalesCompanySpinner.setEnabled(false);
+        finalPaymentSpinner.setEnabled(false);
+/*
+        finalEmailyes.setEnabled(false);
+        finalEmailNo.setEnabled(false);
+        finalBillingCheckYes.setEnabled(false);
+        finalBillingCheckNo.setEnabled(false);
+        finalPOYes.setEnabled(false);
+        finalPONo.setEnabled(false);
+        finalTaxYes.setEnabled(false);
+        finalTaxNo.setEnabled(false);
+        finalBoxYes.setEnabled(false);
+        finalBoxNo.setEnabled(false);
+        finalBSNYes.setEnabled(false);
+        finalBSNNo.setEnabled(false);
+        finalMasterUser.setEnabled(false);
+        finalApprovalRouting.setEnabled(false);
+        */
     }
 
 

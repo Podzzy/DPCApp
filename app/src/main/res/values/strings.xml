@@ -66,10 +66,11 @@
     <string name="input_delivery_notes">Input delivery notes</string>
     <string name="create_customer_account">Create Customer Account</string>
     <string name="inbox">Inbox</string>
-    <string name="order_status">Order Status</string>
-    <string name="my_account">My Account</string>
+    <string name="order_status">Account Status</string>
+    <string name="my_account">My Profile</string>
     <string name="log_out">Log out</string>
     <string name="login">LOGIN</string>
+
     <string name="welcome_to_the_detroit_pencil_company_account_creator">Welcome to the Detroit Pencil Company Account Creator</string>
     <string name="username">Username</string>
     <string name="example_company_com">example@company.com</string>
@@ -116,5 +117,8 @@
     <string name="version">Version</string>
     <string name="company_goes_here">Company goes here</string>
     <string name="select_phase">Select Phase:</string>
+    <string name="in_progress_phase_2">In Progress: Phase 2</string>
+    <string name="in_progress_phase_3">In Progress: Phase 3</string>
+    <string name="complete">Complete</string>
 
 </resources>

@@ -23,7 +23,7 @@
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:text="@string/login"
+            android:text="@string/log_in"
             android:textSize="24sp"
             android:textStyle="bold" />
 
@@ -94,7 +94,7 @@
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="24dp"
-            android:text="@string/login" />
+            android:text="@string/log_in" />
         <TextView
             android:id="@+id/textView5"
             android:layout_width="wrap_content"

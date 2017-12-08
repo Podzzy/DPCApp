@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimaryDark">#222239</color>
+    <color name="colorPrimaryDark">#25253e</color>
     <color name="colorPrimary">#191925</color>
     <color name="colorAccent">#FF4081</color>
     <color name="offWhite">#e4e2d7</color>
+    <color name="blueInbox">#177ab4</color>
+    <color name="blueInboxDark">#132028</color>
+    <color name="orangeInbox">#d96232</color>
+    <color name="orangeInboxDark">#452a20</color>
+    <color name="greenInbox">#378f36</color>
+    <color name="greenInboxDark">#192919</color>
 </resources>

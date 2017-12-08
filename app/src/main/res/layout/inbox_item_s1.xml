@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/colorPrimary">
+    android:background="@color/blueInbox"
+    android:layout_margin="8dp">
 
     <TextView
         android:id="@+id/coName"
@@ -11,14 +12,14 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginLeft="40dp"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="8dp"
         android:maxWidth="150dp"
         android:text="@string/company"
-        android:textSize="18sp"
-       />
+        android:textSize="12sp"
+        />
 
     <TextView
         android:id="@+id/date"
@@ -30,5 +31,5 @@
         android:layout_marginEnd="58dp"
         android:layout_marginRight="58dp"
         android:text="@string/date_submitted"
-        android:textSize="14sp" />
+        android:textSize="10sp" />
 </RelativeLayout>

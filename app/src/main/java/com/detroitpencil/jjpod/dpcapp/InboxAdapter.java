@@ -16,6 +16,12 @@ import java.util.ArrayList;
 public class InboxAdapter extends BaseAdapter {
 
     ArrayList<InboxItem> inbox = new ArrayList<InboxItem>();
+    String inboxType;
+
+    public InboxAdapter(String inboxType) {
+        this.inboxType = inboxType;
+    }
+
 
     void addInboxItem(String companyName, String date){
         InboxItem inboxItem = new InboxItem(companyName, date);
@@ -42,7 +48,20 @@ public class InboxAdapter extends BaseAdapter {
 
         if(view == null){
             LayoutInflater inflater = LayoutInflater.from(viewGroup.getContext());
-            final RelativeLayout layout = (RelativeLayout)inflater.inflate(R.layout.inbox_item, null, false);
+            RelativeLayout layout = (RelativeLayout)inflater.inflate(R.layout.inbox_item, null, false);
+            if(inboxType.equals("normal")){
+                layout = (RelativeLayout)inflater.inflate(R.layout.inbox_item, null, false);
+            }
+            if(inboxType.equals("s1")){
+                layout = (RelativeLayout)inflater.inflate(R.layout.inbox_item_s1, null, false);
+            }
+            if(inboxType.equals("s2")){
+               layout = (RelativeLayout)inflater.inflate(R.layout.inbox_item_s2, null, false);
+            }
+            if(inboxType.equals("complete")){
+                layout = (RelativeLayout)inflater.inflate(R.layout.inbox_item_complete, null, false);
+            }
+            //final RelativeLayout layout = (RelativeLayout)inflater.inflate(R.layout.inbox_item, null, false);
             TextView company = layout.findViewById(R.id.coName);
             TextView date = layout.findViewById(R.id.date);
 

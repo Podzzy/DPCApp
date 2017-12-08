@@ -20,7 +20,8 @@
                 android:layout_width="wrap_content"
                 android:text="@string/salesperson"
                 android:textSize="12sp"
-                android:gravity="end"/>
+                android:gravity="end"
+                />
 
             <EditText
                 android:id="@+id/finalSalespersonText2"
@@ -369,7 +370,7 @@
                 android:textSize="12sp" />
         </TableRow>
         <TextView
-            android:background="@color/colorPrimary"
+            android:background="@drawable/layer_list"
             android:layout_width="match_parent"
 
             android:layout_marginTop="16dp"/>
@@ -698,7 +699,8 @@
                 android:text="@string/internet_set_up"
                 android:gravity="end"
                 android:layout_gravity="center_vertical"
-                android:textSize="12sp"/>
+                android:textSize="12sp"
+                />
             <RadioGroup
                 android:textSize="12sp"
                 android:orientation="horizontal"

@@ -30,7 +30,7 @@ public class DeliveryCheckScreen extends AppCompatActivity {
                 editor.putString("deliveryCheckOption", "yes");
                 editor.commit();
 
-                startActivity(new Intent(view.getContext(), ReviewScreen.class));
+                startActivity(new Intent(view.getContext(), AdditionalInfoScreen.class));
             }
         });
 
